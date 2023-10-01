@@ -1,5 +1,6 @@
-![Logo for librestat](doc/librestat.svg)
+![Logo for librecounter](doc/librecounter.svg)
 
-# librestat
+# librecounter
 
-Free and open website statistics
+Free and open website statistics.
+
