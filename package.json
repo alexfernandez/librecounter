@@ -2,8 +2,11 @@
   "name": "librecounter",
   "version": "0.0.1",
   "description": "Free and open website statistics",
+  "type": "module",
   "main": "index.js",
   "scripts": {
+    "dev": "supervisor bin/start.js",
+    "start": "node bin/start.js",
     "test": "tap --reporter=list"
   },
   "repository": {
@@ -13,7 +16,7 @@
   "keywords": [
     "stats",
     "analytics",
-	"counter",
+    "counter",
     "web"
   ],
   "author": "alexfernandeznpm@gmail.com",
@@ -22,6 +25,9 @@
     "url": "https://github.com/alexfernandez/librecounter/issues"
   },
   "homepage": "https://github.com/alexfernandez/librecounter#readme",
+  "devDependencies": {
+    "supervisor": "^0.12.0"
+  },
   "dependencies": {
     "fastify": "^4.23.2"
   }
