@@ -95,6 +95,14 @@ provide server-side analytics.
 LibreCounter does server-side analytics,
 no cookies, free software, open for everyone to use.
 
+## ePrivacy Directive
+
+The [ePrivacy directive](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A32002L0058)
+of 2002 is even more strict than the GDPR.
+In article 6 it states that traffic data should be deleted or anonymized right away.
+LibreCounter does not store traffic data (user agent, IP address),
+just anonymized aggregates.
+
 ## Guarantees
 
 The code is running on a private server.
