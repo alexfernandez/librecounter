@@ -32,6 +32,7 @@
     "dotenv": "^16.3.1",
     "fastify": "^4.23.2",
     "geoip-lite": "^1.4.7",
-    "mongodb": "^6.1.0"
+    "mongodb": "^6.1.0",
+    "node-device-detector": "^2.0.16"
   }
 }
