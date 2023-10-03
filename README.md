@@ -78,6 +78,14 @@ In particular, IP addresses are not stored at all.
 The logo and the design are quite amateur;
 if you feel like it please send a pull request improving it.
 
+## Known Limitations
+
+Some characters can be modified in pages when displayed:
+the small dollar sign `﹩` is replaced by the regular dollar sign `$`,
+and the leading dot `․` by the regular dot `.'.
+This is done to sidestep
+[limitations in MongoDB field names](https://stackoverflow.com/questions/12397118/mongodb-dot-in-key-name).
+
 # Rationale
 
 The idea of creating free and open stats came after the GDPR:
