@@ -41,6 +41,24 @@ Keep in mind that stats are still open for anyone that knows that you are using 
 by following the link to https://librecounter.org/example.org/show.
 There is currently no way to make the stats private.
 
+### API
+
+If you want to count a visit but don't want to add an image,
+or just cannot,
+you can use the endpoint `/count`. For instance:
+
+    https://librecounter.org/count?url=http://example.org/mypage
+
+Invoking this URL will count as a visit to the site `example.org`, page `/mypage`.
+You can in fact use whatever programming language to invoke the endpoint,
+even a simple `wget` will do:
+
+```shell
+wget https://librecounter.org/count?url=http://example.org/mypage
+```
+
+Be sure to URL-encode the URL parameter or it will be chopped up as part of the query string.
+
 ## Server Installation
 
 To run your own instance simply download the repo and install all dependencies:
@@ -71,7 +89,7 @@ by day, page, country of origin, browser and OS.
 LibreCounter performs **no tracking**: it does not keep track of what visitors did on your site,
 just counts independent visits to each page.
 IP addresses or user agents are not correlated between page visits.
-In particular, IP addresses are not stored at all.
+In particular, IP addresses and user agents are not stored at all.
 
 ## Help Wanted
 
