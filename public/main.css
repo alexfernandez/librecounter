@@ -11,11 +11,15 @@ h1 {
 }
 
 h2 {
-	margin-top: 2em;
+	margin-top: 3em;
 	font-size: 18pt;
 }
 
 div.canvas {
 	max-width: 30em;
+}
+
+footer {
+	margin-top: 5em;
 }
 
