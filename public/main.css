@@ -36,12 +36,29 @@ table, td, th {
 }
 
 .graph {
-	padding: 20px;
+	padding-left: 20px;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1150px) {
 	.graphs {
 		grid-template-columns: 1fr;
+	}
+
+	table {
+		max-width: 800px;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.graphs {
+		grid-template-columns: 1fr;
+	}
+
+	div.canvas {
+		max-width: 400px;
+	}
+	table {
+		max-width: 400px;
 	}
 }
 
