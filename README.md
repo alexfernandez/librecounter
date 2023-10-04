@@ -1,4 +1,4 @@
-![Logo for librecounter](doc/librecounter.svg)
+![Logo for librecounter](public/librecounter.svg)
 
 # librecounter
 

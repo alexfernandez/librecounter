@@ -1,0 +1,64 @@
+body {
+	background: #fff;
+	font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+	font-size: 12pt;
+    font-weight: 400;
+    line-height: 1.75em;
+}
+
+h1 {
+	font-size: 16pt;
+}
+
+h2 {
+	margin-top: 2em;
+	font-size: 14pt;
+}
+
+div.canvas {
+	max-width: 500px;
+}
+
+footer {
+	margin-top: 5em;
+}
+
+table, td, th {
+	border: 1px solid #cccccc;
+	border-collapse: collapse;
+	padding: 5px;
+}
+
+.graphs {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0px;
+}
+
+.graph {
+	padding-left: 20px;
+}
+
+@media screen and (max-width: 1150px) {
+	.graphs {
+		grid-template-columns: 1fr;
+	}
+
+	table {
+		max-width: 800px;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.graphs {
+		grid-template-columns: 1fr;
+	}
+
+	div.canvas {
+		max-width: 400px;
+	}
+	table {
+		max-width: 400px;
+	}
+}
+
