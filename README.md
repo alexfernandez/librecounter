@@ -47,17 +47,18 @@ If you want to count a visit but don't want to add an image,
 or just cannot,
 you can use the endpoint `/count`. For instance:
 
-    https://librecounter.org/count?url=http://example.org/mypage
+    https://librecounter.org/count?url=http://example.org/mypage&userAgent=roboto/1.0
 
-Invoking this URL will count as a visit to the site `example.org`, page `/mypage`.
+Invoking this endpoint will count as a visit to the site `example.org`, page `/mypage`,
+with userAgent `roboto/1.0`.
 You can in fact use whatever programming language to invoke the endpoint,
 even a simple `wget` will do:
 
 ```shell
-wget https://librecounter.org/count?url=http://example.org/mypage
+wget https://librecounter.org/count?url=http://example.org/mypage&userAgent=roboto/1.0
 ```
 
-Be sure to URL-encode the URL parameter or it will be chopped up as part of the query string.
+Be sure to URL-encode the URL and user agent parameters or they will be chopped up as part of the query string.
 
 ## Server Installation
 
