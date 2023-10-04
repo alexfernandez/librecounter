@@ -23,6 +23,12 @@ footer {
 	margin-top: 5em;
 }
 
+table, td, th {
+	border: 1px solid #cccccc;
+	border-collapse: collapse;
+	padding: 5px;
+}
+
 .graphs {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
