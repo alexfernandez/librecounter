@@ -39,6 +39,13 @@ table, td, th {
 	padding-left: 20px;
 }
 
+.title {
+	display: flex;
+	gap: 15px;
+	flex-direction: row;
+	align-items: center;
+}
+
 @media screen and (max-width: 1150px) {
 	.graphs {
 		grid-template-columns: 1fr;
