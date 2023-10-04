@@ -1,25 +1,41 @@
 body {
 	background: #fff;
 	font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-	font-size: 16pt;
+	font-size: 12pt;
     font-weight: 400;
     line-height: 1.75em;
 }
 
 h1 {
-	font-size: 20pt;
+	font-size: 16pt;
 }
 
 h2 {
-	margin-top: 3em;
-	font-size: 18pt;
+	margin-top: 2em;
+	font-size: 14pt;
 }
 
 div.canvas {
-	max-width: 30em;
+	max-width: 500px;
 }
 
 footer {
 	margin-top: 5em;
+}
+
+.graphs {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0px;
+}
+
+.graph {
+	padding: 20px;
+}
+
+@media screen and (max-width: 1000px) {
+	.graphs {
+		grid-template-columns: 1fr;
+	}
 }
 
