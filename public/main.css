@@ -29,6 +29,10 @@ table, td, th {
 	padding: 5px;
 }
 
+table {
+	margin: 20px;
+}
+
 .graphs {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
