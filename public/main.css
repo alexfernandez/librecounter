@@ -50,6 +50,23 @@ table {
 	align-items: center;
 }
 
+a {
+	transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+	border-bottom: dashed 1px #4488cc;
+	color: #004488;
+	text-decoration: none;
+}
+
+a:hover {
+	border-bottom-color: transparent;
+	color: #4aa7ca !important;
+}
+
+a:visited {
+	color: #002266;
+	border-bottom: dashed 1px #004488;
+}
+
 @media screen and (max-width: 1150px) {
 	.graphs {
 		grid-template-columns: 1fr;
