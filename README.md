@@ -6,7 +6,11 @@ Free, libre and open website statistics.
 GDPR compliant: no cookies, no tracking done in the browser,
 no IPs stored, no marketing or advertising done (or even possible).
 
-## Website Analysis
+# Website Counter
+
+LibreCounter provides website traffic analysis and statistics.
+
+## Implementation
 
 Simply add the following snippet to your website,
 in all pages that you want analyzed:
@@ -23,10 +27,11 @@ After that, you can visit
 to see your stats,
 and they will be public for all your visitors to see.
 
+That is it! No configuration needed on the server at all.
 You can see an example on [the author's blog](https://pinchito.es/).
 
 Technical details: the `referrerPolicy` is added to make sure that the browser sends the whole page URL to the server,
-otherwise sometimes it only sends the website as `https://example.org/`
+otherwise sometimes it only sends the website (as `https://example.org/`)
 so LibreCounter cannot know which page the user is visiting.
 
 If you don't want visitors to have direct access to your stats
@@ -41,7 +46,23 @@ Keep in mind that stats are still open for anyone that knows that you are using 
 by following the link to https://librecounter.org/example.org/show.
 There is currently no way to make the stats private.
 
-### API
+## Unique Visitors
+
+If you want to count unique visitors to your website instead of page views,
+just add `unique.svg` to your site instead of `counter.svg`:
+
+```html
+<a href="https://librecounter.org/example.org/show">
+<img src="https://librecounter.org/unique.svg" referrerPolicy="unsafe-url">
+</a></textarea>
+```
+
+Again replacing `example.org` with your website domain.
+This makes LibreCounter send the header `cache-control: max-age=1800, private`
+so that the image is cached in your browser across multiple page views,
+for half an hour.
+
+## API
 
 If you want to count a visit but don't want to add an image,
 or just cannot,
@@ -60,6 +81,14 @@ wget https://librecounter.org/count?url=http://example.org/mypage&userAgent=robo
 
 Be sure to URL-encode the URL and user agent parameters or they will be chopped up as part of the query string.
 
+# The Project
+
+It's a super-simple project with 238 lines of code at the time of writing, 2023-10-02.
+It uses the free IP database from Maxmind via
+[`geoip-lite`](https://npmjs.com/package/geoip-lite),
+and the awesome package [`node-device-detector`](https://www.npmjs.com/package/node-device-detector).
+No data is leaked outside as all lookups are done locally.
+
 ## Server Installation
 
 To run your own instance simply download the repo and install all dependencies:
@@ -71,14 +100,6 @@ npm start
 ```
 
 That should do it!
-
-# The Project
-
-It's a super-simple project with 238 lines of code at the time of writing, 2023-10-02.
-It uses the free IP database from Maxmind via
-[`geoip-lite`](https://npmjs.com/package/geoip-lite),
-and the awesome package [`node-device-detector`](https://www.npmjs.com/package/node-device-detector).
-No data is leaked outside as all lookups are done locally.
 
 ## Analytics, Counter or Tracking?
 
