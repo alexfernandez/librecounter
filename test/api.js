@@ -27,11 +27,11 @@ async function testStats() {
 	console.assert(result.byDay, 'has no days')
 	console.assert(Array.isArray(result.byDay), 'byDay is not an array')
 	const day = getDay()
-	const found = result.byDay.filter(dayStats => dayStats.key == day)
+	const found = result.byDay.filter(dayStats => dayStats.day == day)
 	console.assert(found.length == 1, 'no data today')
 	console.assert(found[0].value > 0, 'no value today')
-	console.assert(result.page, 'has no pages')
-	console.assert(result.page[path], 'has no path')
+	console.assert(result.byPage, 'has no pages')
+	console.assert(result.byPage[path], 'has no path')
 }
 
 export default async function test() {
