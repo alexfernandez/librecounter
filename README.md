@@ -4,13 +4,14 @@
 
 Free, libre and open website statistics.
 GDPR compliant: no cookies, no tracking done in the browser,
-no IPs stored, no marketing or advertising done (or even possible).
+no IP addresses stored, no marketing or advertising done (or even possible).
 
 # Website Counter
 
-LibreCounter provides website traffic analysis and statistics.
+LibreCounter provides website traffic analysis and statistics for free at 
+[librecounter.org](https://librecounter.org/).
 
-## Implementation
+## How to Use
 
 Simply add the following snippet to your website,
 in all pages that you want analyzed:
@@ -113,6 +114,27 @@ just counts independent visits to each page.
 IP addresses or user agents are not correlated between page visits.
 In particular, IP addresses and user agents are not stored at all.
 
+## Data Stored
+
+In case you want to audit what data is stored per page view,
+all technical details are in
+[the class `Counter`](https://github.com/alexfernandez/librecounter/blob/main/lib/core/counter.js):
+
+* day of the view (as 2023-10-06),
+* country of origin (as read from the IP address by [geoip-lite](https://www.npmjs.com/package/geoip-lite)),
+* site and page visited,
+* type of device (desktop, smartphone, tablet..),
+* browser used (Chrome, Firefox, Safari...),
+* operating system (Windows, GNU/Linux, Android...),
+* and platform (x64, x32, amd...).
+
+That is it!
+The package [geoip-lite](https://www.npmjs.com/package/geoip-lite)
+is used for reading the country locally: no data leaves the server.
+For device identification the package
+[node-device-detector](https://www.npmjs.com/package/node-device-detector)
+is used, again locally so no data leaves the server.
+
 ## Help Wanted
 
 The logo and the design are quite amateur;
@@ -153,7 +175,7 @@ just anonymized aggregates.
 
 ## Guarantees
 
-The code is running on a private server.
+The code is running on a private server using Linode (now Akamai).
 There are no guarantees of any kind:
 I intend to provide this service to the community as long as I am able to do it.
 Since you are just adding an external image you should not have any GDPR obligations,
@@ -165,8 +187,9 @@ You can bring up your own instance since the code is completely free.
 ## Eye of Horus
 
 The logo is a play on the [eye of Horus](https://en.wikipedia.org/wiki/Eye_of_Horus),
-to bring protection to your website against people trying to profit from your visitors,
-and from the GDPR.
+to give you special powers of observation
+and at the same time bring protection to your website against the GDPR.
+It also helps ward off from people trying to profit from your visitors.
 
 ## Copyright
 
