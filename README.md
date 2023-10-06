@@ -97,6 +97,19 @@ Parameters:
 
 * `days`: number of last days to get, default 30.
 
+### `/[site]/pageStats`
+
+Get stats for a single page of your site. Replace `[site]` with the domain for your site like `example.org`,
+and add a `page` parameter.
+For instance:
+
+    https://librecounter.org/example.org/pageStats?page=/
+
+Parameters:
+
+* `page`: the page to get, mandatory.
+* `days`: number of last days to get, default 30.
+
 # The Project
 
 It's a super-simple project with 238 lines of code at the time of writing, 2023-10-02.
