@@ -7,8 +7,13 @@ const path = '/mypage.fi'
 const userAgent = 'testbot/1.0'
 
 async function testCounter() {
+	await testPage(path)
+	await testPage('/')
+}
+
+async function testPage(page) {
 	const response = await app.inject({
-		url: `/count?url=http://${site}${path}&userAgent=${userAgent}`,
+		url: `/count?url=http://${site}${page}&userAgent=${userAgent}`,
 		method: 'GET',
 	})
 	console.assert(response.statusCode == 200, 'could not count')
@@ -16,7 +21,7 @@ async function testCounter() {
 	console.assert(result.ok, 'did not count')
 }
 
-async function testStats() {
+async function testSiteStats() {
 	const response = await app.inject({
 		url: `/${site}/siteStats`,
 		method: 'GET',
@@ -50,9 +55,22 @@ async function testLastDays() {
 	console.assert(dayStats.value > 0, 'no value today')
 }
 
+async function testPageStats() {
+	const response = await app.inject({
+		url: `/${site}/pageStats?page=${path}`,
+		method: 'GET',
+		headers: {'user-agent': 'testbot/1.0'},
+	})
+	console.assert(response.statusCode == 200, 'could not get page stats')
+	const result = response.json()
+	console.assert(result.byDay, 'has no days')
+	console.assert(!result.byPage, 'should have no page')
+}
+
 export default async function test() {
 	await testCounter()
-	await testStats()
+	await testSiteStats()
+	await testPageStats()
 	await testLastDays()
 }
 
