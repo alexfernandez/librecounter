@@ -7,11 +7,11 @@ const path = '/mypage.fi'
 const userAgent = 'testbot/1.0'
 
 async function testCounter() {
-	await testPage(path)
-	await testPage('/')
+	await testCountPage(path)
+	await testCountPage('/')
 }
 
-async function testPage(page) {
+async function testCountPage(page) {
 	const response = await app.inject({
 		url: `/count?url=http://${site}${page}&userAgent=${userAgent}`,
 		method: 'GET',
