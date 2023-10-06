@@ -34,8 +34,25 @@ async function testStats() {
 	console.assert(result.byPage[path], 'has no path')
 }
 
+async function testLastDays() {
+	const response = await app.inject({
+		url: `/${site}/stats?days=1`,
+		method: 'GET',
+		headers: {'user-agent': 'testbot/1.0'},
+	})
+	console.assert(response.statusCode == 200, 'could not stats')
+	const result = response.json()
+	console.assert(result.byDay, 'has no days')
+	console.assert(result.byDay.length == 1, 'should only have one day')
+	const dayStats = result.byDay[0]
+	const day = getDay()
+	console.assert(dayStats.day == day, 'should only have today')
+	console.assert(dayStats.value > 0, 'no value today')
+}
+
 export default async function test() {
 	await testCounter()
 	await testStats()
+	await testLastDays()
 }
 
