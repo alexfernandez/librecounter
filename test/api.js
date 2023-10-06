@@ -1,4 +1,5 @@
 import {app} from './setup.js'
+import {getDay} from '../lib/db/query.js'
 
 
 const site = 'test.com'
@@ -10,8 +11,9 @@ async function testCounter() {
 		url: `/count?url=http://${site}${path}&userAgent=${userAgent}`,
 		method: 'GET',
 	})
-	console.log(response)
 	console.assert(response.statusCode == 200, 'could not count')
+	const result = response.json()
+	console.assert(result.ok, 'did not count')
 }
 
 async function testStats() {
@@ -20,8 +22,16 @@ async function testStats() {
 		method: 'GET',
 		headers: {'user-agent': 'testbot/1.0'},
 	})
-	console.log(response)
 	console.assert(response.statusCode == 200, 'could not stats')
+	const result = response.json()
+	console.assert(result.byDay, 'has no days')
+	console.assert(Array.isArray(result.byDay), 'byDay is not an array')
+	const day = getDay()
+	const found = result.byDay.filter(dayStats => dayStats.key == day)
+	console.assert(found.length == 1, 'no data today')
+	console.assert(found[0].value > 0, 'no value today')
+	console.assert(result.page, 'has no pages')
+	console.assert(result.page[path], 'has no path')
 }
 
 export default async function test() {
