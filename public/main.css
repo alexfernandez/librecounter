@@ -67,6 +67,10 @@ a:visited {
 	border-bottom: dashed 1px #004488;
 }
 
+.imageLink {
+	border: none;
+}
+
 @media screen and (max-width: 1150px) {
 	.graphs {
 		grid-template-columns: 1fr;
