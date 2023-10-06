@@ -18,7 +18,7 @@ async function testCounter() {
 
 async function testStats() {
 	const response = await app.inject({
-		url: `/${site}/stats`,
+		url: `/${site}/siteStats`,
 		method: 'GET',
 		headers: {'user-agent': 'testbot/1.0'},
 	})
@@ -36,7 +36,7 @@ async function testStats() {
 
 async function testLastDays() {
 	const response = await app.inject({
-		url: `/${site}/stats?days=1`,
+		url: `/${site}/siteStats?days=1`,
 		method: 'GET',
 		headers: {'user-agent': 'testbot/1.0'},
 	})

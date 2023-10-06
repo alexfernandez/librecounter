@@ -65,6 +65,10 @@ for half an hour.
 
 ## API
 
+The API allows you to count visits and to get stats.
+
+### `/count`
+
 If you want to count a visit but don't want to add an image,
 or just cannot,
 you can use the endpoint `/count`. For instance:
@@ -81,6 +85,17 @@ wget https://librecounter.org/count?url=http://example.org/mypage&userAgent=robo
 ```
 
 Be sure to URL-encode the URL and user agent parameters or they will be chopped up as part of the query string.
+
+### `/[site]/siteStats`
+
+Get stats for your site. Replace `[site]` with the domain for your site like `example.org`.
+For instance:
+
+    https://librecounter.org/example.org/siteStats
+
+Parameters:
+
+* `days`: number of last days to get, default 30.
 
 # The Project
 
