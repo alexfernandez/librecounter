@@ -46,6 +46,10 @@ for instance with this snippet:
 Keep in mind that stats are still open for anyone that knows that you are using it,
 by following the link to https://librecounter.org/example.org/show.
 There is currently no way to make the stats private.
+If you want to hide stats for a sensitive domain
+(like an integration domain you don't want to show),
+please let [the author](https://github.com/alexfernandez/)
+know to add it to the hide list so that stats are not stored at all.
 
 ## Unique Visitors
 
