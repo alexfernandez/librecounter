@@ -46,6 +46,10 @@ for instance with this snippet:
 Keep in mind that stats are still open for anyone that knows that you are using it,
 by following the link to https://librecounter.org/example.org/show.
 There is currently no way to make the stats private.
+If you want to hide stats for a sensitive domain
+(like an integration domain you don't want to show),
+please let [the author](https://github.com/alexfernandez/)
+know to add it to the hide list so that stats are not stored at all.
 
 ## Unique Visitors
 
@@ -129,6 +133,16 @@ npm start
 ```
 
 That should do it!
+
+### Server Configuration
+
+You can create a file `.env` and add it at the root of the project,
+with the following variables in the usual [dotenv format](https://www.npmjs.com/package/dotenv):
+
+* `BACKEND_MONGODB_URL`: URL to connect to MongoDB including password,
+default value: `mongodb://localhost:27017/librecounter`.
+* `BACKEND_DOMAIN_HIDELIST`: comma-separated list of domains to hide:
+not store or show stats at all. Default value: empty string.
 
 ## Analytics, Counter or Tracking?
 
