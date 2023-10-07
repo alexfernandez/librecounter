@@ -130,6 +130,16 @@ npm start
 
 That should do it!
 
+### Server Configuration
+
+You can create a file `.env` and add it at the root of the project,
+with the following variables in the usual [dotenv format](https://www.npmjs.com/package/dotenv):
+
+* `BACKEND_MONGODB_URL`: URL to connect to MongoDB including password,
+default value: `mongodb://localhost:27017/librecounter`.
+* `BACKEND_DOMAIN_HIDELIST`: comma-separated list of domains to hide:
+not store or show stats at all. Default value: empty string.
+
 ## Analytics, Counter or Tracking?
 
 LibreCounter is a small step beyond the old website counters
