@@ -67,6 +67,18 @@ This makes LibreCounter send the header `cache-control: max-age=1800, private`
 so that the image is cached in your browser across multiple page views,
 for half an hour.
 
+### Old Style Counter
+
+If you want to opt for the nostalgic "you are visitor XXXX" from the old days of the Internet:
+
+```html
+<a href="https://librecounter.org/example.org/show">
+<img src="https://librecounter.org/oldStyle.svg" referrerPolicy="unsafe-url" />
+</a>
+```
+
+Again replacing `example.org` with your website domain.
+
 ## API
 
 The API allows you to count visits and to get stats.
