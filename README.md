@@ -17,16 +17,16 @@ Simply add the following snippet to your website,
 in all pages that you want analyzed:
 
 ```html
-<a href="https://librecounter.org/example.org/show">
+<a href="https://librecounter.org/referer/show">
 <img src="https://librecounter.org/counter.svg" referrerPolicy="unsafe-url" />
 </a>
 ```
 
-Replacing `example.org` with your website domain.
-After that, you can visit
-[https://librecounter.org/example.org/show](https://librecounter.org/example.org/show)
-to see your stats,
-and they will be public for all your visitors to see.
+After that stats will be collected for every page view,
+and users clicking on the logo will be taken to
+[https://librecounter.org/[site]/show](https://librecounter.org/[site]/show)
+replacing `[site]` with your domain name.
+Stats will be public for all your visitors to see.
 
 That is it! No configuration needed on the server at all.
 You can see an example on [the author's blog](https://pinchito.es/).
@@ -35,50 +35,15 @@ Technical details: the `referrerPolicy` is added to make sure that the browser s
 otherwise sometimes it only sends the website (as `https://example.org/`)
 so LibreCounter cannot know which page the user is visiting.
 
-If you don't want visitors to have direct access to your stats
-you can hide the image and remove the link,
-for instance with this snippet:
-
-```html
-<img src="https://librecounter.org/counter.svg" referrerPolicy="unsafe-url" style="display: none" />
-```
-
 Keep in mind that stats are still open for anyone that knows that you are using it,
-by following the link to https://librecounter.org/example.org/show.
+by following the link to https://librecounter.org/[example.org]/show.
 There is currently no way to make the stats private.
 If you want to hide stats for a sensitive domain
 (like an integration domain you don't want to show),
 please let [the author](https://github.com/alexfernandez/)
 know to add it to the hide list so that stats are not stored at all.
 
-### Unique Visitors
-
-If you want to count unique visitors to your website instead of page views,
-just add `unique.svg` to your site instead of `counter.svg`:
-
-```html
-<a href="https://librecounter.org/example.org/show">
-<img src="https://librecounter.org/unique.svg" referrerPolicy="unsafe-url" />
-</a>
-```
-
-Again replacing `example.org` with your website domain.
-This makes LibreCounter send the header `cache-control: max-age=1800, private`
-so that the image is cached in your browser across multiple page views,
-for half an hour.
-
-### Old Style Counter
-
-If you want to opt for the nostalgic "you are visitor XXXX" from the old days of the Internet:
-
-```html
-<a href="https://librecounter.org/example.org/show">
-<img src="https://librecounter.org/oldStyle.svg" referrerPolicy="unsafe-url" />
-</a>
-```
-
-Again replacing `example.org` with your website domain.
-And watch it grow every time you reload the page!
+See more options on the [official website](https://librecounter.org/options).
 
 ## API
 
