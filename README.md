@@ -43,7 +43,7 @@ If you want to hide stats for a sensitive domain
 please let [the author](https://github.com/alexfernandez/)
 know to add it to the hide list so that stats are not stored at all.
 
-See more styles on the [home page](https://librecounter.org/).
+See more options on the [official website](https://librecounter.org/options).
 
 ## API
 

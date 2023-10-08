@@ -3,7 +3,7 @@ import {app, site, userAgent} from './setup.js'
 
 async function testHomePage() {
 	await testPage(`/`, 'LibreCounter Stats')
-	await testPage(`/styles`, 'LibreCounter Styles')
+	await testPage(`/options`, 'LibreCounter Options')
 }
 
 async function testStatsPage() {
