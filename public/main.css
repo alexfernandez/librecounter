@@ -50,6 +50,14 @@ table {
 	align-items: center;
 }
 
+img {
+	vertical-align: middle;
+}
+
+.oldStyle {
+	width: 100px;
+}
+
 a {
 	transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 	border-bottom: dashed 1px #4488cc;
