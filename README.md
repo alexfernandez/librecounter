@@ -18,7 +18,7 @@ in all pages that you want analyzed:
 
 ```html
 <a href="https://librecounter.org/example.org/show">
-<img src="https://librecounter.org/counter.svg" referrerPolicy="unsafe-url">
+<img src="https://librecounter.org/counter.svg" referrerPolicy="unsafe-url" />
 </a>
 ```
 
@@ -40,7 +40,7 @@ you can hide the image and remove the link,
 for instance with this snippet:
 
 ```html
-<img src="https://librecounter.org/counter.svg" referrerPolicy="unsafe-url" style="display: none">
+<img src="https://librecounter.org/counter.svg" referrerPolicy="unsafe-url" style="display: none" />
 ```
 
 Keep in mind that stats are still open for anyone that knows that you are using it,
@@ -51,21 +51,34 @@ If you want to hide stats for a sensitive domain
 please let [the author](https://github.com/alexfernandez/)
 know to add it to the hide list so that stats are not stored at all.
 
-## Unique Visitors
+### Unique Visitors
 
 If you want to count unique visitors to your website instead of page views,
 just add `unique.svg` to your site instead of `counter.svg`:
 
 ```html
 <a href="https://librecounter.org/example.org/show">
-<img src="https://librecounter.org/unique.svg" referrerPolicy="unsafe-url">
-</a></textarea>
+<img src="https://librecounter.org/unique.svg" referrerPolicy="unsafe-url" />
+</a>
 ```
 
 Again replacing `example.org` with your website domain.
 This makes LibreCounter send the header `cache-control: max-age=1800, private`
 so that the image is cached in your browser across multiple page views,
 for half an hour.
+
+### Old Style Counter
+
+If you want to opt for the nostalgic "you are visitor XXXX" from the old days of the Internet:
+
+```html
+<a href="https://librecounter.org/example.org/show">
+<img src="https://librecounter.org/oldStyle.svg" referrerPolicy="unsafe-url" />
+</a>
+```
+
+Again replacing `example.org` with your website domain.
+And watch it grow every time you reload the page!
 
 ## API
 
