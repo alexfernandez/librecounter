@@ -37,9 +37,23 @@ async function testCounterSvg() {
 	console.assert(response.payload.includes('<svg'), 'did not counter')
 }
 
+async function testOldStyleSvg() {
+	const response = await app.inject({
+		url: `/oldStyle.svg`,
+		method: 'GET',
+		headers: {
+			'user-agent': userAgent,
+			referer: `https://${site}/myPage.fo`
+		},
+	})
+	console.assert(response.statusCode == 200, 'could not old-style')
+	console.assert(response.payload.includes('<svg'), 'did not old-style')
+}
+
 export default async function test() {
 	await testHomePage()
 	await testStatsPage()
 	await testCounterSvg()
+	await testOldStyleSvg()
 }
 
