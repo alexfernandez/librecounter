@@ -19,7 +19,7 @@ in all pages that you want analyzed:
 ```html
 <a href="https://librecounter.org/example.org/show">
 <img src="https://librecounter.org/counter.svg" referrerPolicy="unsafe-url">
-</a></textarea>
+</a>
 ```
 
 Replacing `example.org` with your website domain.
