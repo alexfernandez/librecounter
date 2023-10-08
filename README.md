@@ -78,6 +78,7 @@ If you want to opt for the nostalgic "you are visitor XXXX" from the old days of
 ```
 
 Again replacing `example.org` with your website domain.
+And watch it grow every time you reload the page!
 
 ## API
 
