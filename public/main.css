@@ -18,6 +18,10 @@ h2 {
 	color: #191919;
 }
 
+div.logo {
+	max-width: 20em;
+}
+
 div.canvas {
 	max-width: 500px;
 }
