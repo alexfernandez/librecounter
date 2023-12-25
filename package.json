@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/alexfernandez/librecounter#readme",
   "devDependencies": {
+    "eslint": "^8.56.0",
     "pino-pretty": "^10.2.3",
     "supervisor": "^0.12.0"
   },
