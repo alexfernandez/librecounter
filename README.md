@@ -213,7 +213,8 @@ It also helps ward off from people trying to profit from your visitors.
 
 ## Copyright
 
-(C) 2023 Alex Fernández.
+(C) 2023 Alex Fernández and [contributors](https://github.com/alexfernandez/librecounter/graphs/contributors).
+Visual identity contributed by [Fullcircle](https://fullcircle.es/).
 Licensed under the [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html),
 which in a nutshell means that you should make the code public if you distribute it.
 No need to do anything if you just run it on your own website.
