@@ -3,6 +3,7 @@ import {app, site, userAgent} from './setup.js'
 
 async function testHomePage() {
 	await testPage(`/`, 'LibreCounter Stats')
+	await testPage(`/main.css`, 'body {')
 	await testPage(`/options`, 'LibreCounter Options')
 	await testPage(`/img/isologo-brown.svg`, '<svg')
 	await testPage(`/img/isologo-fake.svg`, 'File not found', 404)
