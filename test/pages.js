@@ -4,7 +4,7 @@ import {app, site, userAgent} from './setup.js'
 async function testHomePage() {
 	await testPage(`/`, 'LibreCounter Stats')
 	await testPage(`/options`, 'LibreCounter Options')
-	await testPage(`/logo/isologo-brown.svg`, '<svg')
+	await testPage(`/img/isologo-brown.svg`, '<svg')
 }
 
 async function testStatsPage() {
