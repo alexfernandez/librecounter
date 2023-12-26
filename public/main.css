@@ -65,6 +65,10 @@ img {
 	vertical-align: middle;
 }
 
+img.isologo {
+	max-width: 10em;
+}
+
 .oldStyle {
 	width: 100px;
 }
