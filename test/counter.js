@@ -1,34 +1,27 @@
 import {app, site, userAgent} from './setup.js'
 
 
-async function testCounterSvg() {
+async function testCounter(url, name) {
 	const response = await app.inject({
-		url: `/counter.svg`,
+		url,
 		method: 'GET',
 		headers: {
 			'user-agent': userAgent,
 			referer: `https://${site}/myPage.fo`
 		},
 	})
-	console.assert(response.statusCode == 200, 'could not counter')
-	console.assert(response.payload.includes('<svg'), 'did not counter')
+	console.assert(response.statusCode == 200, `could not count ${name}`)
+	console.assert(response.payload.includes('<svg'), `did not count ${name}`)
 }
 
-async function testOldStyleSvg() {
-	const response = await app.inject({
-		url: `/oldStyle.svg`,
-		method: 'GET',
-		headers: {
-			'user-agent': userAgent,
-			referer: `https://${site}/myPage.fo`
-		},
-	})
-	console.assert(response.statusCode == 200, 'could not old-style')
-	console.assert(response.payload.includes('<svg'), 'did not old-style')
+async function testSvgCounters() {
+	await testCounter(`/counter.svg`, 'simple')
+	await testCounter(`/oldStyle.svg`, 'old style')
+	await testCounter(`/solid-yellow.svg`, 'solid yellow')
+	await testCounter(`/outline-orange.svg`, 'outline orange')
 }
 
 export default async function test() {
-	await testCounterSvg()
-	await testOldStyleSvg()
+	await testSvgCounters()
 }
 

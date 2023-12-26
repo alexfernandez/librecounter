@@ -1,18 +1,25 @@
 body {
-	background: #fff;
+	background: #f9f6f2;
 	font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 	font-size: 12pt;
-    font-weight: 400;
-    line-height: 1.75em;
+	font-weight: 400;
+	line-height: 1.75em;
+	color: #333333;
 }
 
 h1 {
 	font-size: 16pt;
+	color: #191919;
 }
 
 h2 {
 	margin-top: 2em;
 	font-size: 14pt;
+	color: #191919;
+}
+
+div.logo {
+	max-width: 20em;
 }
 
 div.canvas {
@@ -24,13 +31,17 @@ footer {
 }
 
 table, td, th {
-	border: 1px solid #cccccc;
+	border: 1px solid #a99c8b;
 	border-collapse: collapse;
 	padding: 5px;
 }
 
 table {
 	margin: 20px;
+}
+
+textarea {
+	background-color: #ece3d8;
 }
 
 .graphs {
@@ -54,25 +65,29 @@ img {
 	vertical-align: middle;
 }
 
+img.isologo {
+	max-width: 10em;
+}
+
 .oldStyle {
 	width: 100px;
 }
 
 a {
 	transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-	border-bottom: dashed 1px #4488cc;
-	color: #004488;
+	color: #507589;
+	border-bottom: dashed 1px #7391a1;
 	text-decoration: none;
 }
 
 a:hover {
 	border-bottom-color: transparent;
-	color: #4aa7ca !important;
+	color: #6188873 !important;
 }
 
 a:visited {
-	color: #002266;
-	border-bottom: dashed 1px #004488;
+	color: #365161;
+	border-bottom: dashed 1px #4b6f84;
 }
 
 .imageLink {
