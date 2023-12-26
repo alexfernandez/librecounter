@@ -1,6 +1,6 @@
 {
   "name": "librecounter",
-  "version": "0.11.0",
+  "version": "1.0",
   "description": "Free and open website statistics",
   "type": "module",
   "main": "index.js",
