@@ -1,12 +1,10 @@
-![Logo for librecounter](public/librecounter.svg)
+![Logo for librecounter](public/img/isologo-brown.svg)
 
-# librecounter
+# LibreCounter Stats
 
 Free, libre and open website statistics.
 GDPR compliant: no cookies, no tracking done in the browser,
 no IP addresses stored, no marketing or advertising done (or even possible).
-
-# Website Counter
 
 LibreCounter provides website traffic analysis and statistics for free at 
 [librecounter.org](https://librecounter.org/).
@@ -28,6 +26,8 @@ and users clicking on the logo will be taken to
 replacing `[site]` with your domain name.
 Stats will be public for all your visitors to see.
 
+![Example stats using LibreCounter.](https://github.com/alexfernandez/librecounter/assets/876570/b32839b4-369a-4e86-801e-ce034f2920f1)
+
 That is it! No configuration needed on the server at all.
 You can see an example on [the author's blog](https://pinchito.es/).
 
@@ -43,7 +43,7 @@ If you want to hide stats for a sensitive domain
 please let [the author](https://github.com/alexfernandez/)
 know to add it to the hide list so that stats are not stored at all.
 
-See more options on the [official website](https://librecounter.org/options).
+There are a host of visualiation options on the [official website](https://librecounter.org/options).
 
 ## API
 
@@ -92,15 +92,15 @@ Parameters:
 * `page`: the page to get, mandatory.
 * `days`: number of last days to get, default 30.
 
-# The Project
+## The Project
 
-It's a super-simple project with 238 lines of code at the time of writing, 2023-10-02.
+It's a simple project with less than 1000 lines of code on 2024-01-14.
 It uses the free IP database from Maxmind via
 [`geoip-lite`](https://npmjs.com/package/geoip-lite),
 and the awesome package [`node-device-detector`](https://www.npmjs.com/package/node-device-detector).
 No data is leaked outside as all lookups are done locally.
 
-## Server Installation
+### Server Installation
 
 To run your own instance simply download the repo and install all dependencies:
 
@@ -111,6 +111,7 @@ npm start
 ```
 
 That should do it!
+For no-hassle use please use the [official website](https://librecounter.org/).
 
 ### Server Configuration
 
@@ -157,8 +158,7 @@ is used, again locally so no data leaves the server.
 
 ## Help Wanted
 
-The logo and the design are quite amateur;
-if you feel like it please send a pull request improving it.
+If you want the package to support your favorite feature please open a merge request.
 
 ## Known Limitations
 
@@ -198,9 +198,12 @@ just anonymized aggregates.
 The code is running on a private server using Linode (now Akamai).
 There are no guarantees of any kind:
 I intend to provide this service to the community as long as I am able to do it.
+However, if your use case requires it I may provide a full code audit to verify the running code.
+
 Since you are just adding an external image you should not have any GDPR obligations,
 the operator of the private server does (i.e. myself).
 Always a good idea to consult with your lawyers if you want to be sure though.
+
 
 You can bring up your own instance since the code is completely free.
 
