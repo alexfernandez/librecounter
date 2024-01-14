@@ -1,4 +1,4 @@
-![Logo for librecounter](public/img/isologo-brown.svg)
+<img src="public/img/isologo-brown.svg" alt="Logo for librecounter" width="280" />
 
 # LibreCounter Stats
 
