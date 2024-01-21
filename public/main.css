@@ -96,6 +96,10 @@ a:visited {
 	border: none;
 }
 
+.action {
+	font-size: 14pt;
+}
+
 @media screen and (max-width: 1150px) {
 	.graphs {
 		grid-template-columns: 1fr;
