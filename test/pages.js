@@ -13,6 +13,11 @@ async function testStatsPage() {
 	await testPage(`/${site}/show`, site)
 }
 
+async function testFakeDomainPage() {
+	const fakeDomain = 'test.fake'
+	await testPage(`/${fakeDomain}/show`, `No stats for ${fakeDomain}`)
+}
+
 async function testPage(url, check, expectedStatus = 200) {
 	const response = await app.inject({
 		url,
@@ -40,6 +45,7 @@ async function testRedirect() {
 export default async function test() {
 	await testHomePage()
 	await testStatsPage()
+	await testFakeDomainPage()
 	await testRedirect()
 }
 
