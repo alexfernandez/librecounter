@@ -10,7 +10,7 @@ async function testHomePage() {
 }
 
 async function testStatsPage() {
-	await testPage(`/${site}/show`, site)
+	await testPage(`/${site}/show`, `Analytics for ${site}`)
 }
 
 async function testFakeDomainPage() {
