@@ -6,11 +6,11 @@ function testHidden(domain, hidden) {
 }
 
 export default async function test() {
-	testHidden('pinchito.local', true)
 	testHidden('127.0.0.1:3424', true)
 	testHidden('localhost:2847', true)
 	testHidden('localhost.test.com', false)
 	testHidden('librecounter.org', false)
 	testHidden('movilocal.test.com', false)
+	testHidden('pinchito.local', false)
 }
 
