@@ -1,10 +1,9 @@
 import {app} from './setup.js'
 import {getDay} from '../lib/db/query.js'
+import {site, userAgent} from './setup.js'
 
-
-const site = 'test.com'
 const path = '/mypage.fi'
-const userAgent = 'testbot/1.0'
+
 
 async function testCounter() {
 	await testCountPage(path)
