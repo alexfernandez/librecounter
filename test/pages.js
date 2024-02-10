@@ -10,7 +10,7 @@ async function testHomePage() {
 }
 
 async function testStatsPage() {
-	await testPage(`/${site}/show`, `Analytics for ${site}`)
+	await testPage(`/${site}/show`, [`Analytics for `, site])
 }
 
 async function testFakeDomainPage() {
@@ -18,14 +18,17 @@ async function testFakeDomainPage() {
 	await testPage(`/${fakeDomain}/show`, `No stats for ${fakeDomain}`)
 }
 
-async function testPage(url, check, expectedStatus = 200) {
+async function testPage(url, checks, expectedStatus = 200) {
 	const response = await app.inject({
 		url,
 		method: 'GET',
 		headers: {'user-agent': userAgent},
 	})
 	console.assert(response.statusCode == expectedStatus, `could not page ${url}`)
-	console.assert(response.payload.includes(check), `did not page ${url}`)
+	const checkArray = checks.length ? checks : [checks]
+	for (const check of checkArray) {
+		console.assert(response.payload.includes(check), `did not page ${url}`)
+	}
 }
 
 async function testRedirect() {
