@@ -132,8 +132,9 @@ by day, page, country of origin, browser and OS.
 
 LibreCounter performs **no tracking**: it does not keep track of what visitors did on your site,
 just counts independent visits to each page.
-IP addresses or user agents are not correlated between page visits.
-In particular, IP addresses and user agents are not stored at all.
+Personal information is not correlated between page visits.
+In particular, user agents and IP addresses and user agents are not stored at all.
+(But see [Tracking](doc/tracking.md) for more specific info.)
 
 ## Data Stored
 
