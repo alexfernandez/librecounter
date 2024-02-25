@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "supervisor bin/start.js",
     "start": "node bin/start.js",
-    "test": "node bin/test.js"
+    "test": "node bin/test.js; eslint ."
   },
   "repository": {
     "type": "git",
