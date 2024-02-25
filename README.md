@@ -81,16 +81,7 @@ Parameters:
 
 ### `/[site]/pageStats`
 
-Get stats for a single page of your site. Replace `[site]` with the domain for your site like `example.org`,
-and add a `page` parameter.
-For instance:
-
-    https://librecounter.org/example.org/pageStats?page=/
-
-Parameters:
-
-* `page`: the page to get, mandatory.
-* `days`: number of last days to get, default 30.
+Deprecated and removed in v2.0: this API call was broken.
 
 ## The Project
 
