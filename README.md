@@ -16,7 +16,7 @@ in all pages that you want analyzed:
 
 ```html
 <a href="https://librecounter.org/referer/show">
-<img src="https://librecounter.org/counter.svg" referrerPolicy="unsafe-url" />
+<img src="https://librecounter.org/counter.svg" referrerpolicy="unsafe-url" alt="Logo for librecounter/>
 </a>
 ```
 
