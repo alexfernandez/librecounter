@@ -133,3 +133,8 @@ dist
 # private files
 private
 
+# Sqlite
+*.db
+*.db-shm
+*.db-wal
+
