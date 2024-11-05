@@ -1,6 +1,4 @@
-import {initDb, createIndex, incrementFields, findAll, dropTable, close} from '../lib/db/sqlite.js'
-
-const configDb = 'test/test.db'
+import {createIndex, incrementFields, findAll, dropTable, close} from '../lib/db/sqlite.js'
 
 
 async function testSimpleUpsert() {
@@ -21,7 +19,6 @@ async function testDropTable() {
 }
 
 export default async function test() {
-	await initDb(configDb)
 	await testDropTable()
 	await testSimpleUpsert()
 	await close()

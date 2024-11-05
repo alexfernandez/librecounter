@@ -1,5 +1,5 @@
 import {app} from './setup.js'
-import {getDay} from '../lib/db/query.js'
+import {getDay} from '../lib/db/stats.js'
 import {site, userAgent} from './setup.js'
 
 const path = '/mypage.fi'
