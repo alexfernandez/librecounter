@@ -1,9 +1,9 @@
 {
   "name": "librecounter",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "Free and open website statistics",
   "type": "module",
-  "main": "index.js",
+  "main": "bin/start.js",
   "scripts": {
     "dev": "supervisor bin/start.js",
     "start": "node bin/start.js",
