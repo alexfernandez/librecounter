@@ -9,10 +9,11 @@ async function testSimpleUpsert() {
 	await incrementFields('test', query, {count: 1})
 	await incrementFields('test', query, {count: 1})
 	await incrementFields('test', query, {count: 1})
-	const result = await findAll('test', query, {count: 1})
-	console.assert(result, 'no result')
-	console.assert(result.count, 'no result count')
-	console.assert(result.count == 3, 'result count should be 3')
+	const results = await findAll('test', ['name = ?'], ['hi'])
+	console.assert(results, 'no results')
+	console.assert(results.length == 1, 'not one result')
+	console.assert(results[0].count, 'no result count')
+	console.assert(results[0].count == 3, 'result count should be 3')
 }
 
 async function testDropTable() {
