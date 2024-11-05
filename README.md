@@ -109,8 +109,7 @@ For no-hassle use please use the [official website](https://librecounter.org/).
 You can create a file `.env` and add it at the root of the project,
 with the following variables in the usual [dotenv format](https://www.npmjs.com/package/dotenv):
 
-* `BACKEND_MONGODB_URL`: URL to connect to MongoDB including password,
-default value: `mongodb://localhost:27017/librecounter`.
+* `BACKEND_SQLITE_DB`: path to SQLite database to use, default value: `local.db`.
 * `BACKEND_DOMAIN_HIDELIST`: comma-separated list of domains to hide:
 not store or show stats at all. Default value: empty string.
 
@@ -157,8 +156,9 @@ If you want the package to support your favorite feature please open a merge req
 Some characters can be modified in pages when displayed:
 the small dollar sign `﹩` is replaced by the regular dollar sign `$`,
 and the leading dot `․` by the regular dot `.'.
-This is done to sidestep
-[limitations in MongoDB field names](https://stackoverflow.com/questions/12397118/mongodb-dot-in-key-name).
+This was done originally to sidestep
+[limitations in MongoDB field names](https://stackoverflow.com/questions/12397118/mongodb-dot-in-key-name),
+and has not been changed yet.
 
 # Rationale
 
