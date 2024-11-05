@@ -10,5 +10,5 @@ await testPages()
 await testCounter()
 await testDomains()
 await testSqlite()
-await close()
+close()
 
