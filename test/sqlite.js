@@ -7,9 +7,12 @@ async function testSimpleUpsert() {
 	await createIndex('test', {name: 1})
 	const query = {name: 'hi'}
 	await incrementFields('test', query, {count: 1})
-	const result = await findAll(query)
-	console.assert(result)
-	console.log(result)
+	await incrementFields('test', query, {count: 1})
+	await incrementFields('test', query, {count: 1})
+	const result = await findAll('test', query, {count: 1})
+	console.assert(result, 'no result')
+	console.assert(result.count, 'no result count')
+	console.assert(result.count == 3, 'result count should be 3')
 }
 
 async function testDropTable() {
