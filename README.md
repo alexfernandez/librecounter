@@ -109,8 +109,7 @@ For no-hassle use please use the [official website](https://librecounter.org/).
 You can create a file `.env` and add it at the root of the project,
 with the following variables in the usual [dotenv format](https://www.npmjs.com/package/dotenv):
 
-* `BACKEND_MONGODB_URL`: URL to connect to MongoDB including password,
-default value: `mongodb://localhost:27017/librecounter`.
+* `BACKEND_SQLITE_DB`: path to SQLite database to use, default value: `local.db`.
 * `BACKEND_DOMAIN_HIDELIST`: comma-separated list of domains to hide:
 not store or show stats at all. Default value: empty string.
 
@@ -157,8 +156,9 @@ If you want the package to support your favorite feature please open a merge req
 Some characters can be modified in pages when displayed:
 the small dollar sign `﹩` is replaced by the regular dollar sign `$`,
 and the leading dot `․` by the regular dot `.'.
-This is done to sidestep
-[limitations in MongoDB field names](https://stackoverflow.com/questions/12397118/mongodb-dot-in-key-name).
+This was done originally to sidestep
+[limitations in MongoDB field names](https://stackoverflow.com/questions/12397118/mongodb-dot-in-key-name),
+and has not been changed yet.
 
 # Rationale
 
@@ -208,7 +208,7 @@ It also helps ward off from people trying to profit from your visitors.
 
 ## Copyright
 
-(C) 2023-2024 Alex Fernández and [contributors](https://github.com/alexfernandez/librecounter/graphs/contributors).
+(C) 2023-2024 [Alex Fernández](https://pinchito.es/) and [contributors](https://github.com/alexfernandez/librecounter/graphs/contributors).
 Visual identity contributed by [Fullcircle](https://fullcircle.es/).
 Licensed under the [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html),
 which in a nutshell means that you should make the code public if you distribute it.

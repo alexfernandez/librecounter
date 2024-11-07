@@ -1,9 +1,9 @@
 {
   "name": "librecounter",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "Free and open website statistics",
   "type": "module",
-  "main": "index.js",
+  "main": "bin/start.js",
   "scripts": {
     "dev": "supervisor bin/start.js",
     "start": "node bin/start.js",
@@ -31,10 +31,10 @@
     "supervisor": "^0.12.0"
   },
   "dependencies": {
+    "better-sqlite3": "^11.5.0",
     "dotenv": "^16.3.1",
     "fastify": "^4.23.2",
     "geoip-lite": "^1.4.10",
-    "mongodb": "^6.1.0",
     "node-device-detector": "^2.0.16"
   }
 }

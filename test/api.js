@@ -1,5 +1,5 @@
 import {app} from './setup.js'
-import {getDay} from '../lib/db/query.js'
+import {getDay} from '../lib/db/stats.js'
 import {site, userAgent} from './setup.js'
 
 const path = '/mypage.fi'
@@ -26,7 +26,7 @@ async function testSiteStats() {
 	const found = stats.byDay.filter(dayStats => dayStats.day == day)
 	console.assert(found.length == 1, 'no data today')
 	console.assert(found[0].value > 0, 'no value today')
-	console.assert(stats.byPage[path], 'has no path')
+	console.assert(stats.byPage[path], 'by page has no path')
 }
 
 async function testFetchSiteStats(url) {
@@ -52,6 +52,10 @@ async function testLastDays() {
 	console.assert(dayStats.value > 0, 'no value today')
 }
 
+/**
+ * With MongoDB values were cached.
+ * With SQLite values are no longer cached, always fresh.
+ */
 async function testCache() {
 	const cachedPath = '/cached'
 	const day = getDay()
@@ -60,16 +64,16 @@ async function testCache() {
 	console.assert(firstFound.length == 1, 'no data today')
 	console.assert(firstFound[0].value > 0, 'no value today')
 	const firstPage = firstStats.byPage[cachedPath]
-	console.assert(firstPage, 'has no path')
+	console.assert(firstPage, 'cached first has no path')
 	await testCountPage(cachedPath)
 	const secondStats = await testFetchSiteStats(`/${site}/siteStats`)
 	const secondFound = secondStats.byDay.filter(dayStats => dayStats.day == day)
 	console.assert(secondFound.length == 1, 'no data today')
 	console.assert(secondFound[0].value > 0, 'no value today')
-	console.assert(secondStats.byPage[cachedPath], 'has no path')
-	console.assert(secondFound[0].value == firstFound[0].value, 'cached day stats should not increase')
+	console.assert(secondStats.byPage[cachedPath], 'second by page has no path')
+	console.assert(secondFound[0].value > firstFound[0].value, 'second day stats should increase')
 	const secondPage = secondStats.byPage[cachedPath]
-	console.assert(secondPage == firstPage, 'cached page stats should not increase')
+	console.assert(secondPage > firstPage, 'second page stats should increase')
 	await sleep(1001)
 	const thirdStats = await testFetchSiteStats(`/${site}/siteStats`)
 	const thirdFound = thirdStats.byDay.filter(dayStats => dayStats.day == day)
