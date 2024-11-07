@@ -208,7 +208,7 @@ It also helps ward off from people trying to profit from your visitors.
 
 ## Copyright
 
-(C) 2023-2024 Alex Fernández and [contributors](https://github.com/alexfernandez/librecounter/graphs/contributors).
+(C) 2023-2024 [Alex Fernández](https://pinchito.es/) and [contributors](https://github.com/alexfernandez/librecounter/graphs/contributors).
 Visual identity contributed by [Fullcircle](https://fullcircle.es/).
 Licensed under the [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html),
 which in a nutshell means that you should make the code public if you distribute it.
