@@ -12,6 +12,7 @@ async function testCounter(url, name) {
 	})
 	console.assert(response.statusCode == 200, `could not count ${name}`)
 	console.assert(response.payload.includes('<svg'), `did not count ${name}`)
+	return response.payload
 }
 
 async function testSvgCounters() {
@@ -21,7 +22,15 @@ async function testSvgCounters() {
 	await testCounter(`/outline-orange.svg`, 'outline orange')
 }
 
+async function testOldStyle() {
+	const payload = await testCounter(`/oldStyle.svg`, 'old style')
+	// split by each zero in counter
+	const parts = payload.split('">0</tspan>')
+	console.assert(parts.length != 5, 'four zeros in counter')
+}
+
 export default async function test() {
 	await testSvgCounters()
+	await testOldStyle()
 }
 
