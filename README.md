@@ -35,6 +35,9 @@ Technical details: the `referrerPolicy` is added to make sure that the browser s
 otherwise sometimes it only sends the website (as `https://example.org/`)
 so LibreCounter cannot know which page the user is visiting.
 
+There is an option to hide stats from the home page,
+using `hidden.svg`.
+
 Keep in mind that stats are still open for anyone that knows that you are using it,
 by following the link to https://librecounter.org/[example.org]/show.
 There is currently no way to make the stats private.
