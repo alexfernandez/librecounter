@@ -130,7 +130,7 @@ In particular, user agents and IP addresses and user agents are not stored at al
 
 In case you want to audit what data is stored per page view,
 all technical details are in
-[the class `Counter`](https://github.com/alexfernandez/librecounter/blob/main/lib/core/counter.js):
+[the class `Counter`](https://github.com/alexfernandez/librecounter/blob/main/core/counter.js):
 
 * day of the view (as 2023-10-06),
 * country of origin (as read from the IP address by [geoip-lite](https://www.npmjs.com/package/geoip-lite)),

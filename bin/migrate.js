@@ -1,5 +1,5 @@
-import {migrateFrom} from '../lib/db/migrate.js'
-import {close} from '../lib/db/sqlite.js'
+import {migrateFrom} from '../db/migrate.js'
+import {close} from '../db/sqlite.js'
 
 async function runMigration() {
 	console.log(process.argv)

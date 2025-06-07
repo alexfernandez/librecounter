@@ -1,5 +1,5 @@
 import Fastify from 'fastify'
-import setup from '../lib/server/setup.js'
+import setup from '../server/setup.js'
 
 
 async function start() {

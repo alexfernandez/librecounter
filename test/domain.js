@@ -1,4 +1,4 @@
-import {isDomainHidden} from '../lib/core/domain.js'
+import {isDomainHidden} from '../core/domain.js'
 
 
 function testHidden(domain, hidden) {

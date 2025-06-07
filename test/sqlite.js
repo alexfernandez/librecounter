@@ -1,4 +1,4 @@
-import {createCounter, incrementFields, findAll, dropTable, close} from '../lib/db/sqlite.js'
+import {createCounter, incrementFields, findAll, dropTable, close} from '../db/sqlite.js'
 
 
 async function testSimpleUpsert() {

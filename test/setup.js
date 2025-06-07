@@ -1,4 +1,4 @@
-import setup from '../lib/server/setup.js'
+import setup from '../server/setup.js'
 import Fastify from 'fastify'
 
 export const site = 'test.com'
