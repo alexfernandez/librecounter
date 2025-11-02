@@ -93,10 +93,36 @@ No data is leaked outside as all lookups are done locally.
 
 ### Server Installation
 
-To run your own instance simply download the repo and install all dependencies:
+#### Using Docker
+
+To run your own instance with Docker:
 
 ```shell
 git clone https://github.com/alexfernandez/librecounter
+cd librecounter
+docker-compose up -d
+```
+
+The application will be available at `http://localhost:11893`.
+Database will be persisted in the `./data` directory.
+
+To view logs:
+```shell
+docker-compose logs -f
+```
+
+To stop:
+```shell
+docker-compose down
+```
+
+#### Using Node.js Directly
+
+Alternatively, you can run without Docker:
+
+```shell
+git clone https://github.com/alexfernandez/librecounter
+cd librecounter
 npm install
 npm start
 ```
@@ -106,12 +132,16 @@ For no-hassle use please use the [official website](https://librecounter.org/).
 
 ### Server Configuration
 
-You can create a file `.env` and add it at the root of the project,
-with the following variables in the usual [dotenv format](https://www.npmjs.com/package/dotenv):
+Configuration can be set via environment variables:
 
 * `BACKEND_SQLITE_DB`: path to SQLite database to use, default value: `local.db`.
 * `BACKEND_DOMAIN_HIDELIST`: comma-separated list of domains to hide:
 not store or show stats at all. Default value: empty string.
+
+When running directly with Node.js, you can create a `.env` file at the root of the project
+with the variables in the usual [dotenv format](https://www.npmjs.com/package/dotenv).
+
+When running with Docker, environment variables are configured in `docker-compose.yml`.
 
 ## Analytics, Counter or Tracking?
 
