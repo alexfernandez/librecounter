@@ -110,7 +110,9 @@ export function createHome(latestSites) {
 		no personal information such as user agents or IP addresses stored.
 		</p>
 		<p>
-		Since no cookies are used you don't need to add a disclaimer to your site.
+		Also the <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A32002L0058">ePrivacy directive of 2002</a>
+		should be covered:
+		since no cookies are used you don't need to add a disclaimer to your site.
 		</p>
 	</article>
 ${createFooter()}`
