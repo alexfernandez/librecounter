@@ -113,6 +113,8 @@ export function createHome(latestSites) {
 		Also the <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A32002L0058">ePrivacy directive of 2002</a>
 		should be covered:
 		since no cookies are used you don't need to add a disclaimer to your site.
+		However keep in mind that there are conflicting interpretations of this directive.
+		Please seek legal counsel before implementing and proceed at your own risk.
 		</p>
 	</article>
 ${createFooter()}`

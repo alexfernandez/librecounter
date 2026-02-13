@@ -215,6 +215,12 @@ In article 6 it states that traffic data should be deleted or anonymized right a
 LibreCounter does not store traffic data (user agent, IP address),
 just anonymized aggregates.
 
+There are interpretations of this directive that state that
+even processing IP addresses without consent may be in violation,
+for instance these [EDPB guidelines](https://www.edpb.europa.eu/system/files/2024-10/edpb_guidelines_202302_technical_scope_art_53_eprivacydirective_v2_en_0.pdf).
+Please seek legal counsel before implementing and proceed at your own risk;
+and let me know if you have any issues.
+
 ## Guarantees
 
 The code is running on a private server using Linode (now Akamai).
