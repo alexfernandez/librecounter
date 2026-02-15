@@ -113,10 +113,10 @@ export function createOptions() {
 		for half an hour.
 		</p>
 		<p>
-		You can also use styled logos for unique visitors by adding <code>/unique/<code> to the style,
+		You can also use styled logos for unique visitors by adding <code>/unique/</code> to the style,
 		such as <code>/unique/outline-yellow.svg</code>:
 		</p>
-		<textarea disabled rows="3" cols="80">
+		<textarea disabled rows="4" cols="80">
 <a href="https://librecounter.org/referer/show" target="_blank">
 <img src="https://librecounter.org/unique/outline-yellow.svg" referrerPolicy="unsafe-url" />
 </a></textarea>
