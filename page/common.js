@@ -22,7 +22,7 @@ export function createHead(title) {
 export function createFooter() {
 	return `
 	<footer>
-		© 2024 <a href="https://pinchito.es/">Alex "pinchito" Fernández</a> and <a href="https://github.com/alexfernandez/librecounter/graphs/contributors">contributors</a>.
+		© 2024-2026 <a href="https://pinchito.es/">Alex "pinchito" Fernández</a> and <a href="https://github.com/alexfernandez/librecounter/graphs/contributors">contributors</a>.
 		<br />
 		Visual identity and "eye of Horus" logo contributed by <a href="https://fullcircle.es/">Fullcircle</a>.
 		<br />

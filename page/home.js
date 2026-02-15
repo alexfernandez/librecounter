@@ -115,7 +115,7 @@ export function createHome(latestSites) {
 		</p>
 		<h3>Disclaimer</h3>
 		<p>
-		keep in mind that there are conflicting interpretations of these EU laws.
+		Keep in mind that there are conflicting interpretations of these EU laws.
 		Proceed at your own risk;
 		and if in doubt just ask for consent anyway.
 		Always a good idea to consult with your lawyers if you want to be in the clear.
