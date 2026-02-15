@@ -207,7 +207,19 @@ provide server-side analytics.
 LibreCounter does server-side analytics,
 no cookies, free software, open for everyone to use.
 
-## ePrivacy Directive
+## Guarantees
+
+The code is running on a private server using Linode (now Akamai).
+There are no guarantees of any kind:
+I intend to provide this service to the community as long as I am able to do it.
+However, if your use case requires it I may provide a full code audit to verify the running code.
+
+You can bring up your own instance since the code is completely free.
+
+## Disclaimer
+
+Since you are just adding an external image you should not have any GDPR obligations,
+the operator of the private server does (i.e. myself).
 
 The [ePrivacy directive](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A32002L0058)
 of 2002 is even more strict than the GDPR.
@@ -217,23 +229,13 @@ just anonymized aggregates.
 
 There are interpretations of this directive that state that
 even processing IP addresses without consent may be in violation,
-for instance these [EDPB guidelines](https://www.edpb.europa.eu/system/files/2024-10/edpb_guidelines_202302_technical_scope_art_53_eprivacydirective_v2_en_0.pdf).
-Please seek legal counsel before implementing and proceed at your own risk;
-and let me know if you have any issues.
+for instance suggested in these
+[EDPB guidelines](https://www.edpb.europa.eu/system/files/2024-10/edpb_guidelines_202302_technical_scope_art_53_eprivacydirective_v2_en_0.pdf).
+Proceed at your own risk,
+and if in doubt just ask for consent anyway.
 
-## Guarantees
-
-The code is running on a private server using Linode (now Akamai).
-There are no guarantees of any kind:
-I intend to provide this service to the community as long as I am able to do it.
-However, if your use case requires it I may provide a full code audit to verify the running code.
-
-Since you are just adding an external image you should not have any GDPR obligations,
-the operator of the private server does (i.e. myself).
-Always a good idea to consult with your lawyers if you want to be sure though.
-
-
-You can bring up your own instance since the code is completely free.
+Always a good idea to consult with your lawyers if you want to be in the clear.
+Let me know if you have any legal issues.
 
 ## Eye of Horus
 
