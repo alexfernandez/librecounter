@@ -8,7 +8,7 @@ export function isDomainHidden(domain) {
 	if (domainsToHide.includes(domain)) {
 		return true
 	}
-	if (domain.startsWith('localhost:')) {
+	if (domain.startsWith('localhost')) {
 		return true
 	}
 	if (domain.startsWith('127.0.0.1')) {
