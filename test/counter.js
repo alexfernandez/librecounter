@@ -29,8 +29,16 @@ async function testOldStyle() {
 	console.assert(parts.length != 5, 'four zeros in counter')
 }
 
+async function testUniqueCounters() {
+	await testCounter(`/unique.svg`, 'simple')
+	await testCounter(`/unique/oldStyle.svg`, 'old style')
+	await testCounter(`/unique/solid-yellow.svg`, 'solid yellow')
+	await testCounter(`/unique/outline-orange.svg`, 'outline orange')
+}
+
 export default async function test() {
 	await testSvgCounters()
 	await testOldStyle()
+	await testUniqueCounters()
 }
 

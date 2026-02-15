@@ -16,6 +16,7 @@ export default async function setup(app) {
 	app.get('/unique.svg', uniqueCounter)
 	app.get('/oldStyle.svg', oldStyleCounter)
 	app.get('/:file.svg', logoCounter)
+	app.get('/unique/:file.svg', uniqueLogoCounter)
 	app.get('/count', count)
 }
 
@@ -94,6 +95,17 @@ async function logoCounter(request, reply) {
 	const counter = new Counter(request.ip, request.headers)
 	storeCounter(counter)
 	reply.header('cache-control', `max-age=${maxCacheAge}, private`)
+	const path = `public/img/${request.params.file}.svg`
+	return await serveStaticFile(path, svgType, request, reply)
+}
+
+/**
+ * Same interface as logoCounter()
+ */
+async function uniqueLogoCounter(request, reply) {
+	const counter = new Counter(request.ip, request.headers)
+	storeCounter(counter)
+	reply.header('cache-control', `max-age=${maxCacheUnique}, private`)
 	const path = `public/img/${request.params.file}.svg`
 	return await serveStaticFile(path, svgType, request, reply)
 }
