@@ -58,10 +58,19 @@ class Counter {
 		if (!userAgent) {
 			return null
 		}
+		const bot = detector.parseBot(userAgent)
+		if (bot.name) {
+			return {
+				type: 'bot',
+				os: 'bot',
+				platform: bot.category,
+				browser: bot.name,
+			}
+		}
 		const device = detector.detect(userAgent)
 		return {
 			type: device.device.type,
-			os: device.os.name,
+			os: device.os.name || device.client.type,
 			platform: device.os.platform,
 			browser: device.client.name,
 		}
