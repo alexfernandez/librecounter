@@ -36,9 +36,30 @@ async function testUniqueCounters() {
 	await testCounter(`/unique/outline-orange.svg`, 'unique outline orange')
 }
 
+async function testInvalidReferer() {
+	// dirty trick to catch warnings
+	const oldWarn = console.warn
+	const warnings = []
+	console.warn = warning => warnings.push(warning)
+	const response = await app.inject({
+		url: '/counter.svg',
+		method: 'GET',
+		headers: {
+			'user-agent': userAgent,
+			referer: `${site}`
+		},
+	})
+	console.warn = oldWarn
+	// end of dirty trick
+	console.assert(warnings.length, 'should have received warnings')
+	console.assert(response.statusCode == 200, `could not count invalid referer`)
+	console.assert(response.payload.includes('<svg'), `did not count invalid referer`)
+}
+
 export default async function test() {
 	await testSvgCounters()
 	await testOldStyle()
 	await testUniqueCounters()
+	await testInvalidReferer()
 }
 
