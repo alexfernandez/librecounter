@@ -37,6 +37,10 @@ async function testUniqueCounters() {
 }
 
 async function testInvalidReferer() {
+	// dirty trick to catch warnings
+	const oldWarn = console.warn
+	const warnings = []
+	console.warn = warning => warnings.push(warning)
 	const response = await app.inject({
 		url: '/counter.svg',
 		method: 'GET',
@@ -45,9 +49,11 @@ async function testInvalidReferer() {
 			referer: `${site}`
 		},
 	})
+	console.warn = oldWarn
+	// end of dirty trick
+	console.assert(warnings.length, 'should have received warnings')
 	console.assert(response.statusCode == 200, `could not count invalid referer`)
 	console.assert(response.payload.includes('<svg'), `did not count invalid referer`)
-	return response.payload
 }
 
 export default async function test() {
