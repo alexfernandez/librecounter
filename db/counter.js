@@ -5,7 +5,7 @@ import {encodePage} from '../core/format.js'
 
 export function storeCounter(counter) {
 	if (!counter.site || !counter.page) {
-		console.log('Missing site or page')
+		console.log(`Missing site or page for referrer ${counter.referer}`)
 		return
 	}
 	if (isDomainHidden(counter.site)) {

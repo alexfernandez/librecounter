@@ -25,6 +25,7 @@ class Counter {
 	}
 
 	setReferer(referer) {
+		this.referer = referer
 		if (!referer) {
 			return
 		}
@@ -34,6 +35,7 @@ class Counter {
 	}
 
 	setUserAgent(userAgent) {
+		this.userAgent = userAgent
 		if (!userAgent) {
 			return
 		}
