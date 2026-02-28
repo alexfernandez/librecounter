@@ -69,7 +69,7 @@ class Counter {
 		}
 		const device = detector.detect(userAgent)
 		return {
-			type: device.device.type,
+			type: device.device.type || device.client.type,
 			os: device.os.name || device.client.type,
 			platform: device.os.platform,
 			browser: device.client.name,
