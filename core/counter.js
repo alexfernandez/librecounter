@@ -29,9 +29,13 @@ class Counter {
 		if (!referer) {
 			return
 		}
-		const url = new URL(referer)
-		this.site = url.host
-		this.page = url.pathname
+		try {
+			const url = new URL(referer)
+			this.site = url.host
+			this.page = url.pathname
+		} catch(error) {
+			console.warn(`Invalid referer ${referer}: ${error}`)
+		}
 	}
 
 	setUserAgent(userAgent) {
@@ -39,10 +43,14 @@ class Counter {
 		if (!userAgent) {
 			return
 		}
-		const device = this.getDevice(userAgent)
-		// transfer to stats
-		for (const key in device) {
-			this.stats[key] = device[key]
+		try {
+			const device = this.getDevice(userAgent)
+			// transfer to stats
+			for (const key in device) {
+				this.stats[key] = device[key]
+			}
+		} catch(error) {
+			console.warn(`Invalid user agent ${userAgent}: ${error}`)
 		}
 	}
 
