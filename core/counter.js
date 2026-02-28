@@ -8,7 +8,7 @@ const detector = new DeviceDetector({
 })
 
 
-export class Counter {
+class Counter {
 	constructor(ip, headers) {
 		this.day = this.getDay()
 		const {country = '-'} = this.lookupGeoip(ip, headers) || {}
@@ -67,5 +67,10 @@ export class Counter {
 		}
 		return geoip.lookup(realIp)
 	}
+}
+
+export function createCounter(ip, headers) {
+	const counter = new Counter(ip, headers)
+	return counter
 }
 

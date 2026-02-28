@@ -2,7 +2,7 @@ import {promises as fs} from 'fs'
 import {serveStaticFile} from './file.js'
 import {storeCounter} from '../db/counter.js'
 import {readVisitorToday} from '../db/stats.js'
-import {Counter} from '../core/counter.js'
+import {createCounter} from '../core/counter.js'
 
 const defaultPath = 'public/img/solid-brown.svg'
 const svgType = 'image/svg+xml'
@@ -27,7 +27,7 @@ export default async function setup(app) {
  * No auth required.
  */
 async function counter(request, reply) {
-	const counter = new Counter(request.ip, request.headers)
+	const counter = createCounter(request.ip, request.headers)
 	storeCounter(counter)
 	reply.header('cache-control', `max-age=${maxCacheAge}, private`)
 	return await serveStaticFile(defaultPath, svgType, request, reply)
@@ -37,7 +37,7 @@ async function counter(request, reply) {
  * Same interface as counter()
  */
 async function uniqueCounter(request, reply) {
-	const counter = new Counter(request.ip, request.headers)
+	const counter = createCounter(request.ip, request.headers)
 	storeCounter(counter)
 	reply.header('cache-control', `max-age=${maxCacheUnique}, private`)
 	return await serveStaticFile(defaultPath, svgType, request, reply)
@@ -47,7 +47,7 @@ async function uniqueCounter(request, reply) {
  * Same interface as counter()
  */
 async function oldStyleCounter(request, reply, maxAge = maxCacheAge) {
-	const counter = new Counter(request.ip, request.headers)
+	const counter = createCounter(request.ip, request.headers)
 	storeCounter(counter)
 	reply.type(svgType)
 	reply.header('cache-control', `max-age=${maxAge}, private`)
@@ -64,7 +64,7 @@ async function oldStyleCounter(request, reply, maxAge = maxCacheAge) {
  * No auth required.
  */
 async function count(request) {
-	const counter = new Counter(request.ip, request.headers)
+	const counter = createCounter(request.ip, request.headers)
 	counter.setReferer(request.query.url)
 	counter.setUserAgent(request.query.userAgent)
 	storeCounter(counter)
@@ -93,7 +93,7 @@ function replaceCount(count) {
  * No auth required.
  */
 async function logoCounter(request, reply) {
-	const counter = new Counter(request.ip, request.headers)
+	const counter = createCounter(request.ip, request.headers)
 	storeCounter(counter)
 	reply.header('cache-control', `max-age=${maxCacheAge}, private`)
 	const path = `public/img/${request.params.file}.svg`
@@ -104,7 +104,7 @@ async function logoCounter(request, reply) {
  * Same interface as logoCounter()
  */
 async function uniqueLogoCounter(request, reply) {
-	const counter = new Counter(request.ip, request.headers)
+	const counter = createCounter(request.ip, request.headers)
 	storeCounter(counter)
 	reply.header('cache-control', `max-age=${maxCacheUnique}, private`)
 	const path = `public/img/${request.params.file}.svg`
