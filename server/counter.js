@@ -16,6 +16,7 @@ export default async function setup(app) {
 	app.get('/unique.svg', uniqueCounter)
 	app.get('/oldStyle.svg', oldStyleCounter)
 	app.get('/:file.svg', logoCounter)
+	app.get('/unique/oldStyle.svg', (request, reply) => oldStyleCounter(request, reply, maxCacheUnique))
 	app.get('/unique/:file.svg', uniqueLogoCounter)
 	app.get('/count', count)
 }
@@ -45,11 +46,11 @@ async function uniqueCounter(request, reply) {
 /**
  * Same interface as counter()
  */
-async function oldStyleCounter(request, reply) {
+async function oldStyleCounter(request, reply, maxAge = maxCacheAge) {
 	const counter = new Counter(request.ip, request.headers)
 	storeCounter(counter)
 	reply.type(svgType)
-	reply.header('cache-control', `max-age=${maxCacheAge}, private`)
+	reply.header('cache-control', `max-age=${maxAge}, private`)
 	const visitor = readVisitorToday(counter.site)
 	const count = padVisitor(visitor)
 	return replaceCount(count)

@@ -30,10 +30,10 @@ async function testOldStyle() {
 }
 
 async function testUniqueCounters() {
-	await testCounter(`/unique.svg`, 'simple')
-	await testCounter(`/unique/oldStyle.svg`, 'old style')
-	await testCounter(`/unique/solid-yellow.svg`, 'solid yellow')
-	await testCounter(`/unique/outline-orange.svg`, 'outline orange')
+	await testCounter(`/unique.svg`, 'unique simple')
+	await testCounter(`/unique/oldStyle.svg`, 'unique old style')
+	await testCounter(`/unique/solid-yellow.svg`, 'unique solid yellow')
+	await testCounter(`/unique/outline-orange.svg`, 'unique outline orange')
 }
 
 export default async function test() {
