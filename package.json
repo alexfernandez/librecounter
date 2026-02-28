@@ -33,7 +33,7 @@
   "dependencies": {
     "better-sqlite3": "^11.5.0",
     "dotenv": "^16.3.1",
-    "fastify": "^4.23.2",
+    "fastify": "^5.7.4",
     "geoip-lite": "^1.4.10",
     "node-device-detector": "^2.0.16"
   }
