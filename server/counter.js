@@ -61,7 +61,7 @@ async function oldStyleCounter(request, reply, maxAge = maxCacheAge) {
  * Same interface as counter()
  */
 async function hiddenCounter(request, reply) {
-	const counter = new Counter(request.ip, request.headers)
+	const counter = createCounter(request.ip, request.headers)
 	counter.day = counter.day + '-hidden'
 	storeCounter(counter)
 	reply.header('cache-control', `max-age=${maxCacheAge}, private`)

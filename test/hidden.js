@@ -1,4 +1,4 @@
-import {isDomainHidden} from '../lib/core/domain.js'
+import {isDomainHidden} from '../core/domain.js'
 import {app, userAgent} from './setup.js'
 
 const hiddenSite = 'hidden.test.com'
