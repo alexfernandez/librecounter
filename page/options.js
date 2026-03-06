@@ -132,7 +132,7 @@ export function createOptions() {
 		If you want to keep your stats private you can add the <code>hidden.svg</code> image instead:
 		</p>
 		<textarea disabled rows="2" cols="80">
-<img src="https://librecounter.org/hidden.svg" referrerPolicy="unsafe-url" /></textarea>
+<img src="https://librecounter.org/hidden.svg" referrerPolicy="unsafe-url" width="0" /></textarea>
 		<p>
 		Stats will be hidden from the <a href="https://librecounter.org/>LibreCounter homepage</a>.
 		Keep in mind that stats will still be publicly available at
