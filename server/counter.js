@@ -122,7 +122,7 @@ async function logoCounter(request, reply) {
 }
 
 function validateFile(file) {
-	return (/[^\w-]/.test(file))
+	return !(/[^\w-]/.test(file))
 }
 
 /**
