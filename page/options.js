@@ -128,16 +128,17 @@ export function createOptions() {
 		<textarea disabled rows="2" cols="80">
 <img src="https://librecounter.org/counter.svg" referrerPolicy="unsafe-url" width="0" /></textarea>
 		<p>
-		Keep in mind that your stats may still appear in the list of top sites on the home page.
+		Your stats may still appear in the list of top sites on the home page, though.
 		If you want to keep your stats private you can add the <code>hidden.svg</code> image instead:
 		</p>
 		<textarea disabled rows="2" cols="80">
 <img src="https://librecounter.org/hidden.svg" referrerPolicy="unsafe-url" width="0" /></textarea>
 		<p>
-		Stats will be hidden from the <a href="https://librecounter.org/">LibreCounter homepage</a>.
-		Keep in mind that stats will still be publicly available at
+		Stats will be hidden from the <a href="https://librecounter.org/">LibreCounter homepage</a>;
+		but still be publicly available at
 		<code>https://librecounter.org/[site]/show</code>, where <code>[site]</code>
 		is your domain name (e.g. <code>example.org</code>).
+		This feature is therefore limited to a relative security through obscurity.
 		</p>
 
 		<h2>Bring Your Own Style</h2>
