@@ -24,8 +24,9 @@ export default async function setup(app) {
 }
 
 /**
- * Request: no parameters required.
- * Response: librecounter SVG.
+ * Parameters:
+ * - request: no parameters required.
+ * - response: librecounter SVG.
  * No auth required.
  */
 async function counter(request, reply) {
@@ -46,7 +47,8 @@ async function uniqueCounter(request, reply) {
 }
 
 /**
- * Same interface as counter()
+ * Same interface as counter(), plus:
+ * - maxAge: expiration time for the image, default value 1 second.
  */
 async function oldStyleCounter(request, reply, maxAge = maxCacheAge) {
 	const counter = createCounter(request.ip, request.headers)
@@ -66,14 +68,15 @@ async function hiddenCounter(request, reply) {
 	counter.day = counter.day + '-hidden'
 	storeCounter(counter)
 	reply.header('cache-control', `max-age=${maxCacheAge}, private`)
-	return await serveStaticFile(defaultPath, svgType, request, reply)
+	return await serveStaticFile(`${defaultDir}/hidden.svg`, svgType, request, reply)
 }
 
 /**
- * Request: query parameters:
- *	- url: URL to visit.
- *	- userAgent: the user agent that paid the visit.
- * Response: {ok}.
+ * Parameters:
+ * - request: query parameters:
+ *		- url: URL to visit.
+ *		- userAgent: the user agent that paid the visit.
+ *	- return: {ok}.
  * No auth required.
  */
 async function count(request) {
@@ -101,8 +104,9 @@ function replaceCount(count) {
 }
 
 /**
- * Request: no parameters required.
- * Response: requested (styled) SVG.
+ * Params:
+ * - request: no parameters required.
+ * - response: requested (styled) SVG.
  * No auth required.
  */
 async function logoCounter(request, reply) {
