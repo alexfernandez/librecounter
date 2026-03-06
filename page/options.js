@@ -134,7 +134,7 @@ export function createOptions() {
 		<textarea disabled rows="2" cols="80">
 <img src="https://librecounter.org/hidden.svg" referrerPolicy="unsafe-url" width="0" /></textarea>
 		<p>
-		Stats will be hidden from the <a href="https://librecounter.org/>LibreCounter homepage</a>.
+		Stats will be hidden from the <a href="https://librecounter.org/">LibreCounter homepage</a>.
 		Keep in mind that stats will still be publicly available at
 		<code>https://librecounter.org/[site]/show</code>, where <code>[site]</code>
 		is your domain name (e.g. <code>example.org</code>).
