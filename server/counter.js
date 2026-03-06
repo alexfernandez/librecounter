@@ -106,6 +106,10 @@ function replaceCount(count) {
  * No auth required.
  */
 async function logoCounter(request, reply) {
+	if (!validateFile(request.params.file)) {
+		reply.status(400)
+		return {error: 'Invalid file'}
+	}
 	const counter = createCounter(request.ip, request.headers)
 	storeCounter(counter)
 	reply.header('cache-control', `max-age=${maxCacheAge}, private`)
@@ -113,10 +117,18 @@ async function logoCounter(request, reply) {
 	return await serveStaticFile(path, svgType, request, reply)
 }
 
+function validateFile(file) {
+	return (/[^\w-]/.test(file))
+}
+
 /**
  * Same interface as logoCounter()
  */
 async function uniqueLogoCounter(request, reply) {
+	if (!validateFile(request.params.file)) {
+		reply.status(400)
+		return {error: 'Invalid file'}
+	}
 	const counter = createCounter(request.ip, request.headers)
 	storeCounter(counter)
 	reply.header('cache-control', `max-age=${maxCacheUnique}, private`)
