@@ -4,9 +4,10 @@ import {storeCounter} from '../db/counter.js'
 import {readVisitorToday} from '../db/stats.js'
 import {createCounter} from '../core/counter.js'
 
-const defaultPath = 'public/img/solid-brown.svg'
+const defaultDir = 'public/img'
+const defaultPath = `${defaultDir}/solid-brown.svg`
 const svgType = 'image/svg+xml'
-const oldStyleLogo = String(await fs.readFile('public/img/old-style.svg'))
+const oldStyleLogo = String(await fs.readFile(`${defaultDir}/old-style.svg`))
 const maxCacheAge = 1
 const maxCacheUnique = 1800
 
@@ -108,7 +109,7 @@ async function logoCounter(request, reply) {
 	const counter = createCounter(request.ip, request.headers)
 	storeCounter(counter)
 	reply.header('cache-control', `max-age=${maxCacheAge}, private`)
-	const path = `public/img/${request.params.file}.svg`
+	const path = `${defaultDir}/${request.params.file}.svg`
 	return await serveStaticFile(path, svgType, request, reply)
 }
 
@@ -119,7 +120,7 @@ async function uniqueLogoCounter(request, reply) {
 	const counter = createCounter(request.ip, request.headers)
 	storeCounter(counter)
 	reply.header('cache-control', `max-age=${maxCacheUnique}, private`)
-	const path = `public/img/${request.params.file}.svg`
+	const path = `${defaultDir}/${request.params.file}.svg`
 	return await serveStaticFile(path, svgType, request, reply)
 }
 
