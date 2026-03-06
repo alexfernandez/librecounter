@@ -1,4 +1,4 @@
-import {createCounter, findAll, findOne} from './sqlite.js'
+import {createDbTable, findAll, findOne} from './sqlite.js'
 import {isDomainHidden} from '../core/domain.js'
 import {decodePage} from '../core/format.js'
 import {Stats} from '../core/stats.js'
@@ -7,8 +7,8 @@ import {Stats} from '../core/stats.js'
 init()
 
 function init() {
-	createCounter('sites', ['site', 'day'])
-	createCounter('pages', ['site', 'day', 'page'])
+	createDbTable('sites', ['site', 'day'])
+	createDbTable('pages', ['site', 'day', 'page'])
 }
 
 export function readLatestSites() {

@@ -1,8 +1,8 @@
-import {createCounter, incrementFields, findAll, dropTable, close} from '../lib/db/sqlite.js'
+import {createDbTable, incrementFields, findAll, dropTable, close} from '../db/sqlite.js'
 
 
 async function testSimpleUpsert() {
-	await createCounter('test', ['name'])
+	await createDbTable('test', ['name'])
 	const query = {name: 'hi'}
 	await incrementFields('test', query, {count: 1})
 	await incrementFields('test', query, {count: 1})

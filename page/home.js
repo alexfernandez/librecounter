@@ -108,9 +108,18 @@ export function createHome(latestSites) {
 		LibreCounter is GDPR compliant by default:
 		<a href="https://github.com/alexfernandez/librecounter/blob/main/doc/tracking.md">no browser tracking is done</a>,
 		no personal information such as user agents or IP addresses stored.
+		Also the <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A32002L0058">ePrivacy directive of 2002</a>
+		should be covered:
+		since no cookies are used you don't need to add a disclaimer to your site.
+		But I probably do, so there it goes.
 		</p>
+		<h3>Disclaimer</h3>
 		<p>
-		Since no cookies are used you don't need to add a disclaimer to your site.
+		Keep in mind that there are conflicting interpretations of these EU laws.
+		Proceed at your own risk;
+		and if in doubt just ask for consent anyway.
+		Always a good idea to consult with your lawyers if you want to be in the clear.
+		Let me know if you have any legal issues.
 		</p>
 	</article>
 ${createFooter()}`

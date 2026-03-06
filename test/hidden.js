@@ -43,6 +43,7 @@ async function testHiddenCounter() {
 export default async function test() {
 	testHiddenDomain('127.0.0.1:3424', true)
 	testHiddenDomain('localhost:2847', true)
+	testHiddenDomain('localhost', true)
 	testHiddenDomain('localhost.test.com', false)
 	testHiddenDomain('librecounter.org', false)
 	testHiddenDomain('movilocal.test.com', false)

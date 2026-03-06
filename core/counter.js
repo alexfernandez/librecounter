@@ -8,7 +8,7 @@ const detector = new DeviceDetector({
 })
 
 
-export class Counter {
+class Counter {
 	constructor(ip, headers) {
 		this.day = this.getDay()
 		const {country = '-'} = this.lookupGeoip(ip, headers) || {}
@@ -25,22 +25,32 @@ export class Counter {
 	}
 
 	setReferer(referer) {
+		this.referer = referer
 		if (!referer) {
 			return
 		}
-		const url = new URL(referer)
-		this.site = url.host
-		this.page = url.pathname
+		try {
+			const url = new URL(referer)
+			this.site = url.host
+			this.page = url.pathname
+		} catch(error) {
+			console.warn(`Invalid referer ${referer}: ${error}`)
+		}
 	}
 
 	setUserAgent(userAgent) {
+		this.userAgent = userAgent
 		if (!userAgent) {
 			return
 		}
-		const device = this.getDevice(userAgent)
-		// transfer to stats
-		for (const key in device) {
-			this.stats[key] = device[key]
+		try {
+			const device = this.getDevice(userAgent)
+			// transfer to stats
+			for (const key in device) {
+				this.stats[key] = device[key]
+			}
+		} catch(error) {
+			console.warn(`Invalid user agent ${userAgent}: ${error}`)
 		}
 	}
 
@@ -48,10 +58,19 @@ export class Counter {
 		if (!userAgent) {
 			return null
 		}
+		const bot = detector.parseBot(userAgent)
+		if (bot.name) {
+			return {
+				type: 'bot',
+				os: 'bot',
+				platform: bot.category,
+				browser: bot.name,
+			}
+		}
 		const device = detector.detect(userAgent)
 		return {
-			type: device.device.type,
-			os: device.os.name,
+			type: device.device.type || device.client.type,
+			os: device.os.name || device.client.type,
 			platform: device.os.platform,
 			browser: device.client.name,
 		}
@@ -67,5 +86,10 @@ export class Counter {
 		}
 		return geoip.lookup(realIp)
 	}
+}
+
+export function createCounter(ip, headers) {
+	const counter = new Counter(ip, headers)
+	return counter
 }
 

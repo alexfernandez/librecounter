@@ -96,10 +96,36 @@ No data is leaked outside as all lookups are done locally.
 
 ### Server Installation
 
-To run your own instance simply download the repo and install all dependencies:
+#### Using Docker
+
+To run your own instance with Docker:
 
 ```shell
 git clone https://github.com/alexfernandez/librecounter
+cd librecounter
+docker-compose up -d
+```
+
+The application will be available at `http://localhost:11893`.
+Database will be persisted in the `./data` directory.
+
+To view logs:
+```shell
+docker-compose logs -f
+```
+
+To stop:
+```shell
+docker-compose down
+```
+
+#### Using Node.js Directly
+
+Alternatively, you can run without Docker:
+
+```shell
+git clone https://github.com/alexfernandez/librecounter
+cd librecounter
 npm install
 npm start
 ```
@@ -109,12 +135,16 @@ For no-hassle use please use the [official website](https://librecounter.org/).
 
 ### Server Configuration
 
-You can create a file `.env` and add it at the root of the project,
-with the following variables in the usual [dotenv format](https://www.npmjs.com/package/dotenv):
+Configuration can be set via environment variables:
 
 * `BACKEND_SQLITE_DB`: path to SQLite database to use, default value: `local.db`.
 * `BACKEND_DOMAIN_HIDELIST`: comma-separated list of domains to hide:
 not store or show stats at all. Default value: empty string.
+
+When running directly with Node.js, you can create a `.env` file at the root of the project
+with the variables in the usual [dotenv format](https://www.npmjs.com/package/dotenv).
+
+When running with Docker, environment variables are configured in `docker-compose.yml`.
 
 ## Analytics, Counter or Tracking?
 
@@ -133,7 +163,7 @@ In particular, user agents and IP addresses and user agents are not stored at al
 
 In case you want to audit what data is stored per page view,
 all technical details are in
-[the class `Counter`](https://github.com/alexfernandez/librecounter/blob/main/lib/core/counter.js):
+[the class `Counter`](https://github.com/alexfernandez/librecounter/blob/main/core/counter.js):
 
 * day of the view (as 2023-10-06),
 * country of origin (as read from the IP address by [geoip-lite](https://www.npmjs.com/package/geoip-lite)),
@@ -180,14 +210,6 @@ provide server-side analytics.
 LibreCounter does server-side analytics,
 no cookies, free software, open for everyone to use.
 
-## ePrivacy Directive
-
-The [ePrivacy directive](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A32002L0058)
-of 2002 is even more strict than the GDPR.
-In article 6 it states that traffic data should be deleted or anonymized right away.
-LibreCounter does not store traffic data (user agent, IP address),
-just anonymized aggregates.
-
 ## Guarantees
 
 The code is running on a private server using Linode (now Akamai).
@@ -195,12 +217,28 @@ There are no guarantees of any kind:
 I intend to provide this service to the community as long as I am able to do it.
 However, if your use case requires it I may provide a full code audit to verify the running code.
 
+You can bring up your own instance since the code is completely free.
+
+## Disclaimer
+
 Since you are just adding an external image you should not have any GDPR obligations,
 the operator of the private server does (i.e. myself).
-Always a good idea to consult with your lawyers if you want to be sure though.
 
+The [ePrivacy directive](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A32002L0058)
+of 2002 is even more strict than the GDPR.
+In article 6 it states that traffic data should be deleted or anonymized right away.
+LibreCounter does not store traffic data (user agent, IP address),
+just anonymized aggregates.
 
-You can bring up your own instance since the code is completely free.
+There are interpretations of this directive that state that
+even processing IP addresses without consent may be in violation,
+for instance suggested in these
+[EDPB guidelines](https://www.edpb.europa.eu/system/files/2024-10/edpb_guidelines_202302_technical_scope_art_53_eprivacydirective_v2_en_0.pdf).
+Proceed at your own risk,
+and if in doubt just ask for consent anyway.
+
+Always a good idea to consult with your lawyers if you want to be in the clear.
+Let me know if you have any legal issues.
 
 ## Eye of Horus
 
@@ -211,7 +249,7 @@ It also helps ward off from people trying to profit from your visitors.
 
 ## Copyright
 
-(C) 2023-2024 [Alex Fernández](https://pinchito.es/) and [contributors](https://github.com/alexfernandez/librecounter/graphs/contributors).
+(C) 2023-2026 [Alex Fernández](https://pinchito.es/) and [contributors](https://github.com/alexfernandez/librecounter/graphs/contributors).
 Visual identity contributed by [Fullcircle](https://fullcircle.es/).
 Licensed under the [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html),
 which in a nutshell means that you should make the code public if you distribute it.

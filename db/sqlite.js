@@ -13,7 +13,7 @@ function initDb() {
 	return db
 }
 
-export function createCounter(name, fields) {
+export function createDbTable(name, fields) {
 	const primaryKeys = [...fields, 'field']
 	const defs = [...primaryKeys.map(key => `'${key}' varchar`), 'count integer']
 	const createTable = `CREATE TABLE IF NOT EXISTS ${name} (${defs.join(', ')}, PRIMARY KEY(${primaryKeys.join(', ')}))`

@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  librecounter:
+    build: .
+    container_name: librecounter
+    restart: unless-stopped
+    ports:
+      - "11893:11893"
+    volumes:
+      - ./data:/app/data
+    environment:
+      - BACKEND_SQLITE_DB=/app/data/librecounter.db
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:11893/ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
