@@ -4,9 +4,10 @@ import {storeCounter} from '../db/counter.js'
 import {readVisitorToday} from '../db/stats.js'
 import {createCounter} from '../core/counter.js'
 
-const defaultPath = 'public/img/solid-brown.svg'
+const defaultDir = 'public/img'
+const defaultPath = `${defaultDir}/solid-brown.svg`
 const svgType = 'image/svg+xml'
-const oldStyleLogo = String(await fs.readFile('public/img/old-style.svg'))
+const oldStyleLogo = String(await fs.readFile(`${defaultDir}/old-style.svg`))
 const maxCacheAge = 1
 const maxCacheUnique = 1800
 
@@ -15,6 +16,7 @@ export default async function setup(app) {
 	app.get('/counter.svg', counter)
 	app.get('/unique.svg', uniqueCounter)
 	app.get('/oldStyle.svg', oldStyleCounter)
+	app.get('/hidden.svg', hiddenCounter)
 	app.get('/:file.svg', logoCounter)
 	app.get('/unique/oldStyle.svg', (request, reply) => oldStyleCounter(request, reply, maxCacheUnique))
 	app.get('/unique/:file.svg', uniqueLogoCounter)
@@ -22,8 +24,9 @@ export default async function setup(app) {
 }
 
 /**
- * Request: no parameters required.
- * Response: librecounter SVG.
+ * Parameters:
+ * - request: no parameters required.
+ * - response: librecounter SVG.
  * No auth required.
  */
 async function counter(request, reply) {
@@ -44,7 +47,8 @@ async function uniqueCounter(request, reply) {
 }
 
 /**
- * Same interface as counter()
+ * Same interface as counter(), plus:
+ * - maxAge: expiration time for the image, default value 1 second.
  */
 async function oldStyleCounter(request, reply, maxAge = maxCacheAge) {
 	const counter = createCounter(request.ip, request.headers)
@@ -57,10 +61,22 @@ async function oldStyleCounter(request, reply, maxAge = maxCacheAge) {
 }
 
 /**
- * Request: query parameters:
- *	- url: URL to visit.
- *	- userAgent: the user agent that paid the visit.
- * Response: {ok}.
+ * Same interface as counter()
+ */
+async function hiddenCounter(request, reply) {
+	const counter = createCounter(request.ip, request.headers)
+	counter.day = counter.day + '-hidden'
+	storeCounter(counter)
+	reply.header('cache-control', `max-age=${maxCacheAge}, private`)
+	return await serveStaticFile(`${defaultDir}/hidden.svg`, svgType, request, reply)
+}
+
+/**
+ * Parameters:
+ * - request: query parameters:
+ *		- url: URL to visit.
+ *		- userAgent: the user agent that paid the visit.
+ *	- return: {ok}.
  * No auth required.
  */
 async function count(request) {
@@ -88,26 +104,39 @@ function replaceCount(count) {
 }
 
 /**
- * Request: no parameters required.
- * Response: requested (styled) SVG.
+ * Params:
+ * - request: no parameters required.
+ * - response: requested (styled) SVG.
  * No auth required.
  */
 async function logoCounter(request, reply) {
+	if (!validateFile(request.params.file)) {
+		reply.status(400)
+		return {error: 'Invalid file'}
+	}
 	const counter = createCounter(request.ip, request.headers)
 	storeCounter(counter)
 	reply.header('cache-control', `max-age=${maxCacheAge}, private`)
-	const path = `public/img/${request.params.file}.svg`
+	const path = `${defaultDir}/${request.params.file}.svg`
 	return await serveStaticFile(path, svgType, request, reply)
+}
+
+function validateFile(file) {
+	return !(/[^\w-]/.test(file))
 }
 
 /**
  * Same interface as logoCounter()
  */
 async function uniqueLogoCounter(request, reply) {
+	if (!validateFile(request.params.file)) {
+		reply.status(400)
+		return {error: 'Invalid file'}
+	}
 	const counter = createCounter(request.ip, request.headers)
 	storeCounter(counter)
 	reply.header('cache-control', `max-age=${maxCacheUnique}, private`)
-	const path = `public/img/${request.params.file}.svg`
+	const path = `${defaultDir}/${request.params.file}.svg`
 	return await serveStaticFile(path, svgType, request, reply)
 }
 
