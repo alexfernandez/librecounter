@@ -37,34 +37,34 @@ export function createOptions() {
 
 		<h2>Color and Style</h2>
 		<p>
-		To match your site better you can choose from a variety of colors,
-		all within the Egyptian theme:
-		<tt>brown</tt>, <tt>orange</tt>, <tt>yellow</tt> and sometimes <tt>white</tt>.
-		You can also pick your favorite style.
+		You can pick your favorite style from below.
+		To match your site better you can also choose from a variety of colors,
+		all within the Egyptian theme: <tt>[color]</tt> can be
+		<tt>brown</tt>, <tt>orange</tt> or <tt>yellow</tt>.
 		</p>
 		<p>
-		<tt>solid</tt> (default):
+		<tt>solid-[color].svg</tt> (default):
 		<img src="/img/solid-brown.svg">
 		<img src="/img/solid-orange.svg">
 		<img src="/img/solid-yellow.svg">
 		</p>
 
 		<p>
-		<tt>white</tt>:
+		<tt>white-[color].svg</tt>:
 		<img src="/img/white-brown.svg">
 		<img src="/img/white-orange.svg">
 		<img src="/img/white-yellow.svg">
 		</p>
 
 		<p>
-		<tt>outline</tt>:
+		<tt>outline-[color].svg</tt>:
 		<img src="/img/outline-brown.svg">
 		<img src="/img/outline-orange.svg">
 		<img src="/img/outline-yellow.svg">
 		<img src="/img/outline-white.svg">
 		</p>
 
-		<p><tt>isologo</tt>:
+		<p><tt>isologo-[color].svg</tt>:
 		<img class="isologo" src="/img/isologo-brown.svg">
 		<img class="isologo" src="/img/isologo-orange.svg">
 		<img class="isologo" src="/img/isologo-yellow.svg">
@@ -74,7 +74,7 @@ export function createOptions() {
 		To add to your site just pick style and color and join them with a dash:
 		<tt>[style]-[color].svg</tt>,
 		and use this instead of <tt>counter.svg</tt>.
-		E.g. <tt>outline-orange.svg</tt> will give you an outline in orange:
+		E.g. <tt>https://librecounter.org/outline-orange.svg</tt> will give you an outline in orange:
 		</p>
 		<textarea disabled rows="3" cols="80">
 <a href="https://librecounter.org/referer/show" target="_blank">
