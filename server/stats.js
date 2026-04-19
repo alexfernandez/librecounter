@@ -18,7 +18,7 @@ export default async function setup(app) {
  * No auth required.
  */
 async function fetchSiteStats(request) {
-	const days = request.query.days || defaultDays
+	const days = validateDays(request.query.days)
 	return readSiteStats(request.params.site, days)
 }
 
@@ -28,7 +28,7 @@ async function fetchSiteStats(request) {
  * No auth required.
  */
 async function show(request, reply) {
-	const days = request.query.days || defaultDays
+	const days = validateDays(request.query.days)
 	const site = request.params.site || ''
 	const stats = readSiteStats(site, days)
 	reply.type('text/html')
@@ -49,5 +49,13 @@ async function showReferer(request, reply) {
 	const url = new URL(referer)
 	const site = url.host
 	reply.redirect(`/${site}/show`)
+}
+
+function validateDays(days) {
+	const num = Number(days)
+	if (Number.isInteger(num) && num >= 1) {
+		return num
+	}
+	return defaultDays
 }
 

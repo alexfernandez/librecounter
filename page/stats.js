@@ -1,11 +1,11 @@
-import {getTop10} from '../core/format.js'
+import {getTop10, escapeHtml} from '../core/format.js'
 import {createHead, createFooter} from './common.js'
 
 const dayOptions = [1, 3, 7, 14, 30]
 
 export function createStatsPage(site, days, stats) {
-	const showingDays = days == 1 ? 'day' : `${days} days`
-	return `${createHead(`LibreCounter Stats for ${site}`)}
+	const showingDays = days == 1 ? 'day' : `${escapeHtml(days)} days`
+	return `${createHead(`LibreCounter Stats for ${escapeHtml(site)}`)}
 	<header>
 		<div class="logo">
 		<a href="/" class="imageLink"><img src="/isologo-brown.svg" alt="LibreCounter isologo: logo + title" referrerPolicy="unsafe-url" /></a>
@@ -48,9 +48,9 @@ ${createFooter()}`
 
 function getTitle(site, stats) {
 	if (!stats?.total) {
-		return `No stats for ${site} yet`
+		return `No stats for ${escapeHtml(site)} yet`
 	}
-	return `Analytics for <a href="https://${site}" target="_blank">${site}</a>`
+	return `Analytics for <a href="https://${escapeHtml(site)}" target="_blank">${escapeHtml(site)}</a>`
 }
 
 function getDayLinks(current) {
