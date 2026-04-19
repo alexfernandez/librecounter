@@ -2,6 +2,10 @@
 const maxLabelLength = 30
 const maxStats = 10
 
+export function escapeHtml(s) {
+	return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;')
+}
+
 
 export function encodePage(page) {
 	if (!page) {
