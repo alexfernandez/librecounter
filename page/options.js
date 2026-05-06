@@ -40,13 +40,14 @@ export function createOptions() {
 		You can pick your favorite style from below.
 		To match your site better you can also choose from a variety of colors,
 		all within the Egyptian theme: <tt>[color]</tt> can be
-		<tt>brown</tt>, <tt>orange</tt> or <tt>yellow</tt>.
+		<tt>brown</tt>, <tt>orange</tt>, <tt>yellow</tt> or <tt>black</tt>.
 		</p>
 		<p>
 		<tt>solid-[color].svg</tt> (default):
 		<img src="/img/solid-brown.svg">
 		<img src="/img/solid-orange.svg">
 		<img src="/img/solid-yellow.svg">
+		<img src="/img/solid-black.svg">
 		</p>
 
 		<p>
@@ -54,6 +55,7 @@ export function createOptions() {
 		<img src="/img/white-brown.svg">
 		<img src="/img/white-orange.svg">
 		<img src="/img/white-yellow.svg">
+		<img src="/img/white-black.svg">
 		</p>
 
 		<p>
@@ -62,12 +64,14 @@ export function createOptions() {
 		<img src="/img/outline-orange.svg">
 		<img src="/img/outline-yellow.svg">
 		<img src="/img/outline-white.svg">
+		<img src="/img/outline-black.svg">
 		</p>
 
 		<p><tt>isologo-[color].svg</tt>:
 		<img class="isologo" src="/img/isologo-brown.svg">
 		<img class="isologo" src="/img/isologo-orange.svg">
 		<img class="isologo" src="/img/isologo-yellow.svg">
+        <img class="isologo" src="/img/isologo-black.svg">
 		</p>
 
 		<p>
